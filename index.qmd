@@ -3,16 +3,17 @@ title: "Zachariah Marrero, PhD"
 image: mypic.png
 about: 
   template: trestles
+  id: ppc
   image-shape: round
   image-width: 20em
-links: 
+  links: 
    - text: GitHub
      icon: github
      href: https://github.com/ZachariahMarrero
    - text: LinkedIn
      icon: linkedin
      href: https://www.linkedin.com/in/zachariah-marrero/
-id: ppc
+
 ---
 
 :::{#ppc}
