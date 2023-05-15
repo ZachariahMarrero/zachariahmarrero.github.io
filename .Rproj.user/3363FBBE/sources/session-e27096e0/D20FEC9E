@@ -3,7 +3,7 @@
     "path": "~/zachariahmarrero.github.io/index.qmd",
     "project_path": "index.qmd",
     "type": "quarto_markdown",
-    "hash": "0",
+    "hash": "1012459872",
     "contents": "",
     "dirty": false,
     "created": 1684169348052.0,
@@ -17,15 +17,15 @@
         "docOutlineVisible": "1",
         "rmdVisualCollapsedChunks": "",
         "rmdVisualModeLocation": "67:0",
-        "cursorPosition": "5,20",
+        "cursorPosition": "6,19",
         "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1684173653,
+    "lastKnownWriteTime": 1684179471,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1684173653628,
+    "last_content_update": 1684179471820,
     "read_only": false,
     "read_only_alternatives": []
 }
