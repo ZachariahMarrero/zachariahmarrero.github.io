@@ -1,1 +1,6 @@
 /* css styles */
+h1 {
+    color: black;
+    font-size: 24pt;
+    white-space: nowrap;
+}
