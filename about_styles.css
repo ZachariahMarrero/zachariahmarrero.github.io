@@ -1,15 +1,10 @@
-/* css styles */
-h1 {
-    color: black;
-    font-size: 24pt;
-    white-space: nowrap;
-}
+/* css styles for the about page */
 
-#ppc {
+#about_text {
     width: 150%;  /* Adjust as needed */
     margin: auto;
 }
-
 body {
     padding-right: 20%;  /* Adjust as needed */
+    padding-left: 10%;  /* Adjust as needed */
 }
