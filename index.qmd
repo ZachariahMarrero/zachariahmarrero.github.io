@@ -4,7 +4,7 @@ image: mypic.png
 about: 
   template: trestles
   image-shape: round
-  image-width: 15em
+  image-width: 20em
 links: 
    - text: GitHub
      icon: github
