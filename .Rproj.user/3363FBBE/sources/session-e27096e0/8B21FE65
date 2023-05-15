@@ -1,12 +1,12 @@
 {
-    "id": "D945C0D2",
+    "id": "8B21FE65",
     "path": "~/zachariahmarrero.github.io/_quarto.yml",
     "project_path": "_quarto.yml",
     "type": "yaml",
-    "hash": "265345978",
+    "hash": "0",
     "contents": "",
     "dirty": false,
-    "created": 1684169348296.0,
+    "created": 1684178695818.0,
     "source_on_save": false,
     "relative_order": 2,
     "properties": {
@@ -20,7 +20,7 @@
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1684178432803,
+    "last_content_update": 1684178432,
     "read_only": false,
     "read_only_alternatives": []
 }
