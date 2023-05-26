@@ -4,9 +4,8 @@ css: about_styles.css
 id: about_text
 ---
 
-:::{#about_text}
+::: {#about_text}
 Mega brain says
-
 :::
 
 ```{r}

@@ -1,0 +1,15 @@
+/* css styles */
+h1 {
+    color: black;
+    font-size: 24pt;
+    white-space: nowrap;
+}
+
+#ppc {
+    width: 150%;  /* Adjust as needed */
+    margin: auto;
+}
+
+body {
+    padding-right: 20%;  /* Adjust as needed */
+}
