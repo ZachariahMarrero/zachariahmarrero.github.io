@@ -219,7 +219,7 @@ population.standard.deviation <- 10
 >   print(y)
 > } #closes the function. 
 > myfunction() 
->
+> >
 > print(x)
 > ```
 >
@@ -616,7 +616,7 @@ In R, basic vectorized functions are named apply, sapply, lapply, tapply. #The m
 >
 > ```{r}
 > cl <- parallel::makePSOCKcluster(parallel::detectCores()) #This is 2 functions, the outer function makes a cluster of R instances (it's like opening Rstudio over and over again in the background). The detectCores() function detects the number of cores on your computer's CPU.
->
+> >
 > #cl <- parallel::makeForkCluster(parallel::detectCores()) #If you are on Mac or Linux use this version. A Fork cluster will split your current session into multiple sessions so that all the objects stored in memory have the same location in your machine's Random Access Memory (RAM). These are both a) faster to launch and b) have a smaller overall memory footprint. Also, you do NOT have to use clusterExport when using a Fork.
 > ```
 
@@ -1391,9 +1391,11 @@ Soooooo where's the problem? First of all, the properties of cross-validation ar
 The second issue is by splitting up the data, we lose some statistical power ( the estimator is biased, specifically pessimistically/negatively biased). If we have thousands of data points then it will not likely matter. But if we have small numbers of data points it could matter a lot. So, it matters which type of tool/test we use when we are making inferences because they don't all behave the same under the same conditions.
 
 That's all for now. There will be more topics to come soon.
-<div style="font-size: 24px;">
+
+::: {style="font-size: 10px;"}
 # Examples of more topics to come in no particular order
-</div>
+:::
+
 ANOVA. Analysis of Variance. Another method for approaching tests of mean differences between groups is with ANOVA. The basic idea of ANOVA is that IF two samples are drawn from the same population, THEN there will be more variance of within the respective samples than between them. This observation derives from the expectation that, on average, samples drawn from the same population will have the SAME mean and that there is variance among samples in ALL cases due to the population being a distribution.
 
 F-statistic.An F-statistic is just a ratio made by taking the variances between the groups being compared and the variances within the groups. When variances between the groups is relatively larger than the variances within the groups, we can infer that the groups belong to different populations.
