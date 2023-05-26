@@ -11,7 +11,7 @@ toc-depth: 4
 
 ## Who is this for?
 
-Everyone really. I've aimed to write this so that if you know nothing at all about statistics the material should be easy to follow. Nevertheless, in terms of content, the material also covers a great deal about computations in R and about computing. So, even if you know a lot about statistics already, you could learn about simulations, coding, and about how to effectively share your knowledge with a more general audience. 
+Everyone really. I've aimed to write this so that if you know nothing at all about statistics the material should be easy to follow. Nevertheless, in terms of content, the material also covers a great deal about computations in R and about computing. So, even if you know a lot about statistics already, you could learn about simulations, coding, and about how to effectively share your knowledge with a more general audience.
 
 ## What is this thing you're reading?
 
@@ -28,7 +28,12 @@ I also wrote this because when I started my studies the explanations about stati
 For example, the beginning material here will work a lot with the formula for standard deviation. The formula requires that we take the square of differences before averaging and square rooting. However, we could just as easily, in fact much more easily, take the average of the absolute values. Doing so would eliminate both the squaring and the square root operations, which are known to introduce a bias. Yet, most researchers have no idea why we choose to take the square anyway. In fact, most researchers do not even view it as a choice to be made. ...And that matters. Basic intuition tells us that the formula with fewer steps is going to tend to be computed with fewer errors (especially when done by hand).
 
 > *Sidenote:* Why is Standard Deviation 'standard'? <br>
-> <p style="text-indent: 2em;"> The original name for standard deviation was 'root mean squared deviation.' It was kind of a mouthful. Karl Pearson, an icon in the study of statistics, started referring to it as standard deviation in the 1890s and the name basically just stuck. The 'standard,' then is really just a reference to the fact that it was used commonly or typically as opposed to other measures of deviation.</p>
+>
+> <p style="text-indent: 2em;">
+>
+> The original name for standard deviation was 'root mean squared deviation.' It was kind of a mouthful. Karl Pearson, an icon in the study of statistics, started referring to it as standard deviation in the 1890s and the name basically just stuck. The 'standard,' then is really just a reference to the fact that it was used commonly or typically as opposed to other measures of deviation.
+>
+> </p>
 
 As it turns out, computing average deviation with absolute values is much more efficient in some cases (See: [Revisiting a 90-year-old debate: the advantages of the mean deviation](http://emilkirkegaard.dk/en/wp-content/uploads/Revisiting-a-90-year-old-debate-the-advantages-of-the-mean-deviation.pdf), For an analysis informed by computer simulation, see: [sd vs md.R](https://raw.githubusercontent.com/ZachariahMarrero/Accelerated-Statistical-Learning/main/sd%20vs%20md.R) ). The word 'efficient' has a technical meaning here. In this case, it means something like 'if we desire X amount of precision, then average deviation with squaring will require more samples to achieve that precision than would average deviation using absolute values without squaring.'
 
@@ -106,7 +111,12 @@ Furthermore, whereas we typically don't have access to a population when doing r
 This is wonderful because it then means we're able to directly evaluate what our statistical tools do and rapidly build accurate intuitions. With our access to the population we create, we can study the properties or 'behavior' of the statistical tools we would typically rely upon. This greatly reduces the conceptual burdens and decreases the amount of time investment one would need to make to become proficient in the application of these tools.
 
 > *Sidenote:* The trajectory of human knowledge.<br>
-> <p style="text-indent: 2em;"> It's also worth pointing out that ALL of the statistical tools covered in here were discovered in very recent history and by researchers who did not have computers. In the long arc of human history, these tools are still very new; most are younger than 150 years old, probably all younger than 300. Researchers relied upon an emerging understanding of mathematics and philosophy to create and navigate an abstract system for learning from limited information. SO, IF discovery were a race, we've barely left the starting gate. And that means, yes, you are among the first group of people to ever learn this stuff. Also, it is basic. But basic doesn't mean unimportant. It means something more like 'foundational' or fundamental. These are some of the basic building blocks so to speak.</p>
+>
+> <p style="text-indent: 2em;">
+>
+> It's also worth pointing out that ALL of the statistical tools covered in here were discovered in very recent history and by researchers who did not have computers. In the long arc of human history, these tools are still very new; most are younger than 150 years old, probably all younger than 300. Researchers relied upon an emerging understanding of mathematics and philosophy to create and navigate an abstract system for learning from limited information. SO, IF discovery were a race, we've barely left the starting gate. And that means, yes, you are among the first group of people to ever learn this stuff. Also, it is basic. But basic doesn't mean unimportant. It means something more like 'foundational' or fundamental. These are some of the basic building blocks so to speak.
+>
+> </p>
 
 ## Let's create a population
 
@@ -117,7 +127,12 @@ plot(density(rnorm(100),bw=5)) #These functions will be explained below
 ```
 
 > *Sidenote:*Why the normal distribution?<br>
-> <p style="text-indent: 2em;"> The normal distribution shows up a lot throughout classical statistics for several reasons. It is often said that the normal distribution 'shows up everywhere' but this is a kind of half-truth. There are several reasons. Amongst them, one important reason is that it is far easier to develop methods for analysis that rely on the normal distribution than for other distributions. Put differently, when using the normal distribution it is easier to prove a theorem is true and the math is easier (tractable). </p>
+>
+> <p style="text-indent: 2em;">
+>
+> The normal distribution shows up a lot throughout classical statistics for several reasons. It is often said that the normal distribution 'shows up everywhere' but this is a kind of half-truth. There are several reasons. Amongst them, one important reason is that it is far easier to develop methods for analysis that rely on the normal distribution than for other distributions. Put differently, when using the normal distribution it is easier to prove a theorem is true and the math is easier (tractable).
+>
+> </p>
 
 We will define our population as a set of 1 million members.
 
@@ -170,16 +185,28 @@ population.standard.deviation <- 10
 ```
 
 > *Sidenote:* Floating Point error. <br>
-> <p style="text-indent: 2em;">Computers represent numbers in binary. Operations (i.e., addition, multiplicaton, etc) will very often not be exact due to what's called floating point error. Essentially, in binary, numbers are represented by an expression with a fixed length. By default in R, every number utilizes what's called Double-precision. Double-precision means each number is represented by 64 bits of binary code. </p>
-> However, many numbers are irrational, such as 1/3.  To deal with these limitations the numbers are rounded off on the tail end. In doing so, arithmetic operations can accumulate small errors.
-> As an example, consider 1/3.  It is irrational. So, R will round this irrational number. Instead of being 0.333... it rounds to the nearest number in the 64 bit representation, which is the value shown below.
+>
+> <p style="text-indent: 2em;">
+>
+> Computers represent numbers in binary. Operations (i.e., addition, multiplicaton, etc) will very often not be exact due to what's called floating point error. Essentially, in binary, numbers are represented by an expression with a fixed length. By default in R, every number utilizes what's called Double-precision. Double-precision means each number is represented by 64 bits of binary code.
+>
+> </p>
+>
+> However, many numbers are irrational, such as 1/3. To deal with these limitations the numbers are rounded off on the tail end. In doing so, arithmetic operations can accumulate small errors. As an example, consider 1/3. It is irrational. So, R will round this irrational number. Instead of being 0.333... it rounds to the nearest number in the 64 bit representation, which is the value shown below.
+>
 > ```{r}
 > sprintf("%.25f", (1/3))
 > ```
+>
 > You can increase or decrease the precision (e.g., R package called 'Rmpfr'). However, increasing the precision also increases the computational and memory costs and for almost all applications will provide you with no practical benefit. In fact, in the case of training Neural Networks, single precision accuracy can sometimes lead to better models by forcing the algorithm to learn how to deal with noisier data.
 
 > *Sidenote*: Operators <br>
-> <p style="text-indent: 2em;">In R there '\<\<-' and '\<-' operators. The '\<\<-' is an assignment operator similar to '\<-' , but it assigns a value to a variable in the global environment, even if the assignment occurs within a function. This is called a "superassignment" or "global assignment". </p>
+>
+> <p style="text-indent: 2em;">
+>
+> In R there '\<\<-' and '\<-' operators. The '\<\<-' is an assignment operator similar to '\<-' , but it assigns a value to a variable in the global environment, even if the assignment occurs within a function. This is called a "superassignment" or "global assignment".
+>
+> </p>
 >
 > For example, consider the following code:
 >
@@ -192,7 +219,7 @@ population.standard.deviation <- 10
 >   print(y)
 > } #closes the function. 
 > myfunction() 
-> 
+>
 > print(x)
 > ```
 >
@@ -211,14 +238,24 @@ population.standard.deviation <- 10
 Lastly, we make our population. We'll start with the function rnorm. This function randomly samples a specified number of datapoints (in this case 1 million) from a normal distribution with the defined parameters.
 
 > *Sidenote:* Why distributions? <br>
-> <p style="text-indent: 2em;">A distribution is just a way of defining a function that relates a set of objects. For example, the function that defines the normal distribution is: (1 / (sigma \* sqrt(2 \* pi))) \* exp(-((x - mu)\^2 / (2 \* sigma\^2))), sigma=standard deviation, pi as in 3.14..., mu = the mean. The idea here is that data are generated by a process in the real world. For example, if you measure the speed of cars selected at random on a regulated roadway you will get a distribution. By selecting at random, we can know that the only relevant factor is that each driver is trying to drive at the posted speed limit. However, not all drivers will be able to drive exactly at the limit. Some will tend to be a little over and others will be a little under. If all drivers are earnestly trying to drive exactly at the posted limit, then all of the other differences between the drivers will be due to random causes. If there are a lot of random causes, the distribution might span a relatively wide range and if there are few random causes, the distribution might span a relatively narrow range. So, collectively the speed measurements would form a distribution because all the measurements were derived from the same process underlying process (i.e., trying to drive the posted limit). </p>
+>
+> <p style="text-indent: 2em;">
+>
+> A distribution is just a way of defining a function that relates a set of objects. For example, the function that defines the normal distribution is: (1 / (sigma \* sqrt(2 \* pi))) \* exp(-((x - mu)\^2 / (2 \* sigma\^2))), sigma=standard deviation, pi as in 3.14..., mu = the mean. The idea here is that data are generated by a process in the real world. For example, if you measure the speed of cars selected at random on a regulated roadway you will get a distribution. By selecting at random, we can know that the only relevant factor is that each driver is trying to drive at the posted speed limit. However, not all drivers will be able to drive exactly at the limit. Some will tend to be a little over and others will be a little under. If all drivers are earnestly trying to drive exactly at the posted limit, then all of the other differences between the drivers will be due to random causes. If there are a lot of random causes, the distribution might span a relatively wide range and if there are few random causes, the distribution might span a relatively narrow range. So, collectively the speed measurements would form a distribution because all the measurements were derived from the same process underlying process (i.e., trying to drive the posted limit).
+>
+> </p>
 
 ```{r}
 population <- rnorm(n=N,mean=population.mean,sd=population.standard.deviation)
 ```
 
 > *Sidenote:* R help<br>
-> <p style="text-indent: 2em;">You can read more about rnorm and any other function in R by using '?' to call the help page. For example, the command ?rnorm will bring up the rnorm help page. Alternatively, if you want to see what a function is composed of explicitly you can run the command without parenthesis (i.e., use rnorm not rnorm()). Keep in mind that some function are written in C. C code is compiled which means it has already been translated into a format that your machine can read (and you can't). In those cases the function will not show much information when run without parenthesis and if you wanted to explore the function you'd have to download R (or the package), then unzip or untar it (don't install again). Then open the folder directly, go to src/main/ and C files will be there. Fair warning, if you don't know C, you'll get lost quickly. However, a chatbot can help with navigating and interpreting what you find. </p>
+>
+> <p style="text-indent: 2em;">
+>
+> You can read more about rnorm and any other function in R by using '?' to call the help page. For example, the command ?rnorm will bring up the rnorm help page. Alternatively, if you want to see what a function is composed of explicitly you can run the command without parenthesis (i.e., use rnorm not rnorm()). Keep in mind that some function are written in C. C code is compiled which means it has already been translated into a format that your machine can read (and you can't). In those cases the function will not show much information when run without parenthesis and if you wanted to explore the function you'd have to download R (or the package), then unzip or untar it (don't install again). Then open the folder directly, go to src/main/ and C files will be there. Fair warning, if you don't know C, you'll get lost quickly. However, a chatbot can help with navigating and interpreting what you find.
+>
+> </p>
 
 Since the datapoints are sampled with a random process, their mean and standard deviation will not be exactly the values we desire. The rnorm function only promises that 'with an infinitely large sample' the parameters will be exactly as specified. So we'll want to adjust. mean(population) #will be not exactly = to 10 sd(population) #will be not exactly = to 10
 
@@ -226,9 +263,7 @@ To get exact values of 10 and 10 we'll use basic arithmetic.
 
 In the context of a set of measurements, subtraction and addition are arithmetic operations that can move datapoints along a number line without affecting the relative distances from one another. e.g., 1 and 3 are 3-1=2 distance. Adding 5 to 1 and to 3 yields 6 and 8. But their distance is the same 8-6=2. #In the context of a set of measurements, multiplication and division stretch and shrink the distances between datapoints. Again with 1 and 3. Multiply by 2 and we get 2 and 6. 6-2=4. 4 is related to the original distance by being 2x what it was previously. Division works the same way but in reverse.
 
-So, first, we'll subtract the mean from every datapoint. This is called 'centering'. By subtracting the mean from all datapoints we are, in a sense, "removing" the mean. So the result is a new mean of 0. Next, we'll divide every datapoint by the standard deviation. This is called 'scaling'. By dividing every datapoint by the standard deviation, we are shrinking the distance of every datapoint from the mean. However, the new average distance is not a 0. The new average distance from the mean will be 1.
-# {#why-1-basic-algebra} 
-Why 1? Basic algebra.The original standard deviation is fundamentally just an average. Every number is added together and then divided by the number of numbers in the set. But, we've divided every number by the *same* standard deviation. So if we've written every number as a fraction, we can just compute the standard deviation using the numerators alone first. But if we do that, we'll get back the original standard deviation in the numerator...which means we'll have the standard deviation of the set in the numerator and we'll be dividing it by the standard deviation of the set in the denominator.
+So, first, we'll subtract the mean from every datapoint. This is called 'centering'. By subtracting the mean from all datapoints we are, in a sense, "removing" the mean. So the result is a new mean of 0. Next, we'll divide every datapoint by the standard deviation. This is called 'scaling'. By dividing every datapoint by the standard deviation, we are shrinking the distance of every datapoint from the mean. However, the new average distance is not a 0. The new average distance from the mean will be 1. \# {#why-1-basic-algebra} Why 1? Basic algebra.The original standard deviation is fundamentally just an average. Every number is added together and then divided by the number of numbers in the set. But, we've divided every number by the *same* standard deviation. So if we've written every number as a fraction, we can just compute the standard deviation using the numerators alone first. But if we do that, we'll get back the original standard deviation in the numerator...which means we'll have the standard deviation of the set in the numerator and we'll be dividing it by the standard deviation of the set in the denominator.
 
 A quick example.
 
@@ -248,12 +283,17 @@ a/sd(a) #The 'scaled' members of 'a'.
 ```
 
 > *Sidenote:* on == and all.equal.numeric(). <br>
-> <p style="text-indent: 2em;">In R, == is an operator testing for the equality of the objects to the left and the right. It is very strict. So, when computations result in floating point rounding error, == will return FALSE. An effective alternative is to use a slighly less strict comparison method, namely all.equal.numeric(). The next codeblock demonstrates the differences. what I mean. The sprintf("%.15f",...) tells R to print the results out to 15 decimal places.</p>
+>
+> <p style="text-indent: 2em;">
+>
+> In R, == is an operator testing for the equality of the objects to the left and the right. It is very strict. So, when computations result in floating point rounding error, == will return FALSE. An effective alternative is to use a slighly less strict comparison method, namely all.equal.numeric(). The next codeblock demonstrates the differences. what I mean. The sprintf("%.15f",...) tells R to print the results out to 15 decimal places.
+>
+> </p>
 >
 > ```{r}
 > x <- 1/49
 > x*49==1
->all.equal.numeric(x*49,1,tol=.01) #tol is for tolerance. It specifies by how the two values can be different but still treated as being equal.
+> >all.equal.numeric(x*49,1,tol=.01) #tol is for tolerance. It specifies by how the two values can be different but still treated as being equal.
 > ```
 
 ```{r}
@@ -271,7 +311,12 @@ sd(a)/sd(a) == sd(a/sd(a)) #Returns: TRUE.
 Again, when we compute standard deviation, we're just computing a mean. Since all denominators are the same, we can rearrange the equations in this way.
 
 > *Sidenote:* Temperature Convesion.<br>
-> <p style="text-indent: 2em;"> Another reason the standard deviation becomes 1 when we divide by standard deviation is because we have changed the scale. This is directly analogous to temperature measurement.</p>
+>
+> <p style="text-indent: 2em;">
+>
+> Another reason the standard deviation becomes 1 when we divide by standard deviation is because we have changed the scale. This is directly analogous to temperature measurement.
+>
+> </p>
 >
 > The boiling point of water in Farenheight is 212 degrees but in Celsius it is 100 degrees. And, Freezing point in Farenheight is 32 degrees but in Celsius it is NOT 100-(212-32)= -80 degrees. Rather, in Celsius freezing point is 0.
 >
@@ -286,7 +331,6 @@ population <- scale(population)
 
 mean(population) #Remember: floating point error exists
 ```
-
 
 ```{r}
 sd(population) #Returns 1 or approximately. 1.
@@ -398,7 +442,12 @@ A density plot is similar to a histogram. However, instead of using columns and 
 It's important to note that both density plots and histograms can be very misleading. However, it's easier to spot problems when you are actively testing different configurations. As you'll see below, constructing a usable density plot is very easy (even though the underlying math is a bit elaborate. (See: Density Plot from scratch.R for an implementation of a density plot). So, if visualization is important for your task/process, you should explore the impact of picking different numbers of bins or different values in the case of density plot.
 
 > *Sidenote:* Density vs histograms and plotting strategies<br>
-> <p style="text-indent: 2em;"> Histograms are more intuitive and easy to compute by hand. Their interpretation is somewhat intuitive. Density plots are not so intuitive. Many researchers have strong opinions about using density plots because of their relative complexity. They're also a relatively modern invention given the need for a computer to produce them well. However, a better and more general rule of thumb is to never represent your data in a single way. Why? A full explanation involves a number of concepts that will not be covered here yet (e.g., data leakage, overfitting). However, a simplified explanation is as such: 1. Plots of data are models of data. 2. Every model you could ever make IS, by definition, a simplification of the data itself. 3. A simplification means that some information or detail is left out of the model. The joint consequences of statements 1,2, and 3, are: 1. no plot or model of your data could ever perfectly represent your data. Which leads to 2. The goal of plots and models is to summarize the data in a meaningful way. Which leads to 3. If we must throw away information when summarizing data, we want to throw away the least useful information. Which leads finally to 4. What constitutes the 'least useful information' depends on your data analysis goals. Usually, we want to throw out noise (e.g., random variation in the data). However 5, we can determine what we've thrown out or how our plot/model is biased if we only use one visualization.</p>
+>
+> <p style="text-indent: 2em;">
+>
+> Histograms are more intuitive and easy to compute by hand. Their interpretation is somewhat intuitive. Density plots are not so intuitive. Many researchers have strong opinions about using density plots because of their relative complexity. They're also a relatively modern invention given the need for a computer to produce them well. However, a better and more general rule of thumb is to never represent your data in a single way. Why? A full explanation involves a number of concepts that will not be covered here yet (e.g., data leakage, overfitting). However, a simplified explanation is as such: 1. Plots of data are models of data. 2. Every model you could ever make IS, by definition, a simplification of the data itself. 3. A simplification means that some information or detail is left out of the model. The joint consequences of statements 1,2, and 3, are: 1. no plot or model of your data could ever perfectly represent your data. Which leads to 2. The goal of plots and models is to summarize the data in a meaningful way. Which leads to 3. If we must throw away information when summarizing data, we want to throw away the least useful information. Which leads finally to 4. What constitutes the 'least useful information' depends on your data analysis goals. Usually, we want to throw out noise (e.g., random variation in the data). However 5, we can determine what we've thrown out or how our plot/model is biased if we only use one visualization.
+>
+> </p>
 >
 > So, with that in mind, it's much easier to spot problems with the plots or models or representations you choose when you represent your data in multiple ways. Rather than being limited by the use of just one method, you'll be able to see differences in the models or representations that arise from focusing on different properties of the data. You could liken it to sensory perception. Seeing,hearing,touching ...your data.
 
@@ -554,7 +603,12 @@ Vectorized functions are functions written in a way to minimize redundancy at th
 In R, basic vectorized functions are named apply, sapply, lapply, tapply. #The most similar to a 'for' loop is the sapply. I think of the 's' as 'sequence' (there is a seq function in R also for sequences)
 
 > *Sidenote*: Parallel computing <br>
-> <p style="text-indent: 2em;">Many modern central processing units (CPUs) have multiple cores each with additional logical cores. With resepct to R, each logical core is able to be assigned a computational task. The idea is that a program can be designed so that tasks are executed in parallel on physical cores and sub-processes trade-off in tandem within logical cores since there will be delays due to data leaving the CPU and returning again. Vectorized functions do not take advantage of those cores. R, however, does have the capability to run operations in parallel on each core. To do that you can follow the following chunk of code (though it is unnecessary for a mere 10,000 iterations) A package for doing so is the 'parallel' library. install.packages('parallel')</p>
+>
+> <p style="text-indent: 2em;">
+>
+> Many modern central processing units (CPUs) have multiple cores each with additional logical cores. With resepct to R, each logical core is able to be assigned a computational task. The idea is that a program can be designed so that tasks are executed in parallel on physical cores and sub-processes trade-off in tandem within logical cores since there will be delays due to data leaving the CPU and returning again. Vectorized functions do not take advantage of those cores. R, however, does have the capability to run operations in parallel on each core. To do that you can follow the following chunk of code (though it is unnecessary for a mere 10,000 iterations) A package for doing so is the 'parallel' library. install.packages('parallel')
+>
+> </p>
 >
 > It's also possible to use the parallel package to run a process in parallel across multiple computers on the same network or over the internet. However, the setup will vary from one network to the next. Additionally, there will be more overhead along the way. For instance, the data must travel from one hard-drive, to the RAM, to the CPU, to the network card and down to the CPU of the other machine. Each link in the chain adds additional time and serves as a potential new source of failure. Consequently, the setups have a tendency to be more 'fragile'. Nevertheless, for a setup on the same network, the machines simply need to be able to communicate via ssh. Once enabled, the function is the same as below but 'detectcores' is replaced with the ip addresses of the machines. The ip addresses will indicate each process to run so to use all cores, they should be multiplied. For example, 1 core using both logical processors should have the same ip address included 2 times.
 >
@@ -562,12 +616,17 @@ In R, basic vectorized functions are named apply, sapply, lapply, tapply. #The m
 >
 > ```{r}
 > cl <- parallel::makePSOCKcluster(parallel::detectCores()) #This is 2 functions, the outer function makes a cluster of R instances (it's like opening Rstudio over and over again in the background). The detectCores() function detects the number of cores on your computer's CPU.
-> 
+>
 > #cl <- parallel::makeForkCluster(parallel::detectCores()) #If you are on Mac or Linux use this version. A Fork cluster will split your current session into multiple sessions so that all the objects stored in memory have the same location in your machine's Random Access Memory (RAM). These are both a) faster to launch and b) have a smaller overall memory footprint. Also, you do NOT have to use clusterExport when using a Fork.
 > ```
 
 > *Sidenote*: Syntax for packages <br>
-> <p style="text-indent: 2em;"> I've used 'parallel::' above instead of first calling the package with library('parallel'). This is a shortcut and when you get into complex data analysis in R, it's is generally a better practice because it avoids name conflicts. For example, if you have 2 libraries activated and both libraries use the same name to call a function, then the library called most recently will be the first place R searches for the function. That can be a problem when the functions do different things. </p>
+>
+> <p style="text-indent: 2em;">
+>
+> I've used 'parallel::' above instead of first calling the package with library('parallel'). This is a shortcut and when you get into complex data analysis in R, it's is generally a better practice because it avoids name conflicts. For example, if you have 2 libraries activated and both libraries use the same name to call a function, then the library called most recently will be the first place R searches for the function. That can be a problem when the functions do different things.
+>
+> </p>
 >
 > ```{r}
 >  parallel::clusterExport(cl=cl,varlist=list('population','n')) #This function says, 'export the objects called 'population' and 'n' to the nodes in the cluster called 'cl'.
@@ -630,7 +689,12 @@ corrected.standard.deviations <- t(corrected.standard.deviations)
 Above, we computed the corrected (i.e.,estimated population standard deviation) along with the uncorrected estimate. We can compare them using the code below. Read as: the difference between the true population standard deviation (10) and the estimated population standard deviations with a correction factor (n-1) is smaller than the estimated population standard deviations without a correction factor. The corrected standard deviation is a better estimator.
 
 > *Sidenote:* n-1 <br>
-> <p style="text-indent: 2em;">n-1 is referred as the Bessel correction. As you can see, it works reasonably well. However, other correction factors exist or could be constructed to produce an even better estimator. In particular, for extremely small sample sizes (n of about 30), the correction factor isn't perfectly optimal. However, the benefit would still be quite marginal.</p>
+>
+> <p style="text-indent: 2em;">
+>
+> n-1 is referred as the Bessel correction. As you can see, it works reasonably well. However, other correction factors exist or could be constructed to produce an even better estimator. In particular, for extremely small sample sizes (n of about 30), the correction factor isn't perfectly optimal. However, the benefit would still be quite marginal.
+>
+> </p>
 
 ```{r}
 10-mean(corrected.standard.deviations[,1]) < 10-mean(corrected.standard.deviations[,2]) #Returns: TRUE 
@@ -688,7 +752,12 @@ plot(density(distribution.of.estimated.standard.deviations.of.the.distribution.o
 Our plot confirms there is a variance in the estimated standard error but that our estimates are very close to 1 (which is the true value).
 
 > *Sidenote*: A general formula for standard error of standard errors<br>
-> <p style="text-indent: 2em;">Yes, you can compute the standard deviation of this new distribution using the same formula as above: ((sd(Y)/sqrt(n))/sqrt(n)). and again and again. The general formula is ((sd(Y)/n\^(X/2))) where X is equal to the number of "regresses in the series of infinite regresses". I don't know why you would though. </p>
+>
+> <p style="text-indent: 2em;">
+>
+> Yes, you can compute the standard deviation of this new distribution using the same formula as above: ((sd(Y)/sqrt(n))/sqrt(n)). and again and again. The general formula is ((sd(Y)/n\^(X/2))) where X is equal to the number of "regresses in the series of infinite regresses". I don't know why you would though.
+>
+> </p>
 >
 > ```{r}
 > X <- 1 
@@ -703,14 +772,37 @@ Our plot confirms there is a variance in the estimated standard error but that o
 
 ## Why would we derive the formula for standard error?
 
-<p> There are several reasons: </p>
-<p>1. The most important reason is that deriving the formula for standard error can help us to avoid "fluff" or "hand-wavy" understandings of uncertainty in statistical analysis. Without a rigorous understanding of standard error, there is still a need to understanding uncertainty. Consequently, people are tend to fill the gap with their own intuitions, which are known to be biased in several ways. For example, it has been shown that even among experts there is a tendency to conflate the information provided by standard error estimates with the practical significance of a model. So, by deriving the formula for standard error, we can develop a deeper and more precise understanding of the sources of uncertainty in statistical analysis.</p>
-<p style="text-indent: 1em;">Related examples:</p>
-<p style="max-width: 80%; padding-left: 2em;">[1. Soyer, E., & Hogarth, R. M. (2012). The illusion of predictability: How regression statistics mislead experts](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1996568)</p>
+<p>There are several reasons:</p>
 
-<p style="max-width: 80%; padding-left: 4em;">[2. McCloskey, D. N., & Ziliak, S. T. (1996). The standard error of regressions](https://www.jstor.org/stable/2729411)</p>
+<p>
 
-<p style="max-width: 80%; padding-left: 4em;">[3. Zhang, S., Heck, P. R., Meyer, M. N., Chabris, C. F., Goldstein, D. G., & Hofman, J. M. (2022). An illusion of predictability in scientific results](https://osf.io/preprints/socarxiv/5tcgs/) </p>
+1.  The most important reason is that deriving the formula for standard error can help us to avoid "fluff" or "hand-wavy" understandings of uncertainty in statistical analysis. Without a rigorous understanding of standard error, there is still a need to understanding uncertainty. Consequently, people are tend to fill the gap with their own intuitions, which are known to be biased in several ways. For example, it has been shown that even among experts there is a tendency to conflate the information provided by standard error estimates with the practical significance of a model. So, by deriving the formula for standard error, we can develop a deeper and more precise understanding of the sources of uncertainty in statistical analysis.
+
+    </p>
+
+    <p style="text-indent: 1em;">
+
+    Related examples:
+
+    </p>
+
+    <p style="max-width: 80%; padding-left: 2em;">
+
+    [1. Soyer, E., & Hogarth, R. M. (2012). The illusion of predictability: How regression statistics mislead experts](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=1996568)
+
+    </p>
+
+<p style="max-width: 80%; padding-left: 4em;">
+
+[2. McCloskey, D. N., & Ziliak, S. T. (1996). The standard error of regressions](https://www.jstor.org/stable/2729411)
+
+</p>
+
+<p style="max-width: 80%; padding-left: 4em;">
+
+[3. Zhang, S., Heck, P. R., Meyer, M. N., Chabris, C. F., Goldstein, D. G., & Hofman, J. M. (2022). An illusion of predictability in scientific results](https://osf.io/preprints/socarxiv/5tcgs/)
+
+</p>
 
 2.  We want to prove to ourselves that there is a relationship between sample standard deviation and samples size that we can leverage later on in statistical inferences.
 
@@ -827,9 +919,9 @@ The next line is pseudo-code outling the syntax for computing the mean of severa
 all.equal.numeric( var(colMeans(many.samples))*(99/100), (mean((colSums(many.samples)/n)^2)-mean(colSums(many.samples)/n)^2)) #Returns: TRUE. 
 ```
 
-Conceptually: var('all sample means')= mean((sum(X)/n)^2) - mean(X/n)^2. The above expression is the computational variance formula. We've simply swapped Y with sum(X)/n
+Conceptually: var('all sample means')= mean((sum(X)/n)\^2) - mean(X/n)\^2. The above expression is the computational variance formula. We've simply swapped Y with sum(X)/n
 
-Now, we're going to rearrange the right hand side of the expression. Specifically, we'll extract the n's. All the denominators in the expression are n^2... so we put that in front and add parenthesis around what's left behind.
+Now, we're going to rearrange the right hand side of the expression. Specifically, we'll extract the n's. All the denominators in the expression are n\^2... so we put that in front and add parenthesis around what's left behind.
 
 ```{r}
 all.equal.numeric(
@@ -867,6 +959,7 @@ var(apply(many.samples,1,sum)) == sum(colVars(many.samples))#Returns: FALSE.
 Why does it return FALSE?
 
 I just told you that these two expressions are equivalent but only under the condition specified. And we know, they are equivalent. However, we will only observe that they are equivalent if the variances of each of the samples is the same.... So, we know that because the samples are all drawn from the same population, the variances are all the same IN THEORY, but our empirical estimates of the variances are NOT the same. They're not the same because we're currently simulating with finite numbers of samples, each with finite numbers of members. If we want to prove this to ourselves, then as before, we can conduct the same sampling scheme as we have done above. That is, we re-run the simulations over and over again to see where the distributions are centered. I'll do that in the next codeblock below.
+
 ```{r, eval=FALSE}
 #This codeblock begins with {r, eval=FALSE}. By setting eval=FALSE, we're telling the website to display this code but not execute it when rendering. 
 #If you are using mac or linux, use makeForkCluster to save on memory requirements. 
@@ -886,41 +979,40 @@ parallel::stopCluster(cl=cl)
 
 ```
 
-I ran this 3 times under increasing iterations. 
-These are variances so to get back to standard error we divide by n (100) and then take the square root. (i.e., (sqrt(113.7684/100)))
+I ran this 3 times under increasing iterations. These are variances so to get back to standard error we divide by n (100) and then take the square root. (i.e., (sqrt(113.7684/100)))
 
-At 500 iterations the means of the distributions were:<br> 
-113.7684 114.1263<br>
-At 1,000 iterations the means of the distributions were:<br> 
-114.7004 114.2256<br>
-At 2,000 iterations the means of the distributions were:<br> 
-114.6429 114.1917<br>
+At 500 iterations the means of the distributions were:<br> 113.7684 114.1263<br> At 1,000 iterations the means of the distributions were:<br> 114.7004 114.2256<br> At 2,000 iterations the means of the distributions were:<br> 114.6429 114.1917<br>
 
-These simulations are showing that as the two expessions are equal *in expectation.* In this context, saying, 'in expectation' means that as our number of simulations approaches infinite, our estimate converges to a specific value.  
+These simulations are showing that as the two expessions are equal *in expectation.* In this context, saying, 'in expectation' means that as our number of simulations approaches infinite, our estimate converges to a specific value.
 
 Alternatively, we can think about it some more. Conceptually, there are an infinite number of ways to co-vary and there is only 1 way to not co-vary. So, the chance of not co-varying is essentially 1 divided by infinity. We're going to always observe some variance in our estimates here. So, the algebra above will only work exactly correctly in the case of an infinitely large sample of means because without an infinitely large sample, the individual sample means will not be perfectly independent.
 
-One more intuition concerning why this makes sense. If each member of each sample is drawn completely independent from the other members and all members are drawn from the same population, then there is nothing which says we can't simply 'make' new samples from the samples we have available. In other words, there is no harm in taking members from 'Sample A' and exchanging them with members of 'Sample B'. In fact, this property is related to the concept called 'exchangeability'. Exchangeability just means that the observations in a set can be reordered without affecting the distribution. In this case, it means the distribution doesn't change despite swapping sample members. 
+One more intuition concerning why this makes sense. If each member of each sample is drawn completely independent from the other members and all members are drawn from the same population, then there is nothing which says we can't simply 'make' new samples from the samples we have available. In other words, there is no harm in taking members from 'Sample A' and exchanging them with members of 'Sample B'. In fact, this property is related to the concept called 'exchangeability'. Exchangeability just means that the observations in a set can be reordered without affecting the distribution. In this case, it means the distribution doesn't change despite swapping sample members.
 
-So, despite our inability to compute exactly the correct values, we're not stuck. As you can see, the two sets of values are still very close and have an expectation that makes the statement true if we were to simply repeat the process an infinite number of times. There's just a bias here due to the finite sampling. Which leads to an important note: with finite samples there are better alternative formulas with less bias. However, those formulas come with trade-offs of their own. Nevertheless, the expected (mean) variance for each sample should be the population standard deviation squared. 
+So, despite our inability to compute exactly the correct values, we're not stuck. As you can see, the two sets of values are still very close and have an expectation that makes the statement true if we were to simply repeat the process an infinite number of times. There's just a bias here due to the finite sampling. Which leads to an important note: with finite samples there are better alternative formulas with less bias. However, those formulas come with trade-offs of their own. Nevertheless, the expected (mean) variance for each sample should be the population standard deviation squared.
 
 > *Sidenote:* A note about a finite sample formula<br>
-> <p style="text-indent: 2em;"> We can see that neither of the two expressions above are exactly equal. But they are close. Sure, we could use a finite sample variant but even with this version of standard error we're already accurate to within 97-98%. So we'd really be just chasing down something minor.</p>
+>
+> <p style="text-indent: 2em;">
+>
+> We can see that neither of the two expressions above are exactly equal. But they are close. Sure, we could use a finite sample variant but even with this version of standard error we're already accurate to within 97-98%. So we'd really be just chasing down something minor.
+>
+> </p>
 
-Lastly, we can finish the derivation. 
+Lastly, we can finish the derivation.
 
 At this point we are saying that, analytically, we have the sum of a set of variances, and we have defined the set of variances so that each sample has the same variance.
 
-From that point, we can say that we have n X 'the population variance' (i.e., n multiplied by the population variance). THIS is the final piece of the puzzle trick. Put differently, we are saying, 'hey, all of those variances are equal to the population variance (in expectation)...so let's just replace the sum of the set with the population variance multiplied by the number of samples to simplify the math. We can do that because the sum of a set is equal to the average of a set multiplied by the number of members in the set.'
-Example:
+From that point, we can say that we have n X 'the population variance' (i.e., n multiplied by the population variance). THIS is the final piece of the puzzle trick. Put differently, we are saying, 'hey, all of those variances are equal to the population variance (in expectation)...so let's just replace the sum of the set with the population variance multiplied by the number of samples to simplify the math. We can do that because the sum of a set is equal to the average of a set multiplied by the number of members in the set.' Example:
+
 ```{r}
 all.equal.numeric(mean(c(1:10))*10,sum(c(1:10)))
 ```
 
-From there, we have already estimated the population variance, with our sample variance and sample standard deviation. Recall that means are consistent and unbiased estimators... 
-So if we have 1 sample to go on, then the best estimate of the 'population variance (which is just a type of mean)' will be the variance of our current sample. 
+From there, we have already estimated the population variance, with our sample variance and sample standard deviation. Recall that means are consistent and unbiased estimators... So if we have 1 sample to go on, then the best estimate of the 'population variance (which is just a type of mean)' will be the variance of our current sample.
 
 Therefore:
+
 ```{r}
 
 all.equal.numeric(var(colMeans(many.samples))*(99/100), (1/n^2)*n*var(data),tolerance = .2) #Is TRUE. If returns FALSE: Remember, it's an estimate based on finite samples. 
@@ -940,7 +1032,7 @@ End of the Derivation.
 
 A lot actually. Here are at least 2 things:
 
-First, it tells us by how much we would need to increase our sample size to reduce the imprecision in our mean estimate. 1/sqrt(n) is the rate. So to cut the standard error in half, we need 1/sqrt(n*4) or a sample that is 4x as large.
+First, it tells us by how much we would need to increase our sample size to reduce the imprecision in our mean estimate. 1/sqrt(n) is the rate. So to cut the standard error in half, we need 1/sqrt(n\*4) or a sample that is 4x as large.
 
 Second, we now have a basic ingredient for statistical inference. If we know the means of a group measured on some variable, and if we know the precision of our estimate, we can test whether our observed mean is the same or different than some other value.
 
@@ -950,20 +1042,20 @@ Let's turn our focus to this second use case.
 
 # Building a t-test from scratch: t-tests!
 
-The second use case is really all about t-scores and t-tests. 
-t-tests are often taught as these opaque tools where you 'get a t-score' and compare it to the 'critical value' in a 't-table.' If you attempt to look up where the values from this 't-table' come from on the internet, you'll likely not get a clear answer and most will say the math is complicated. People who say that the math is complicated are correct but only if you need the exact values from an analytical expression (i.e., a closed-form expression). In R though, we can produce these values simply with code, using the tools we've covered up to this point. AND we'll get a much better understanding of them along the way.
+The second use case is really all about t-scores and t-tests. t-tests are often taught as these opaque tools where you 'get a t-score' and compare it to the 'critical value' in a 't-table.' If you attempt to look up where the values from this 't-table' come from on the internet, you'll likely not get a clear answer and most will say the math is complicated. People who say that the math is complicated are correct but only if you need the exact values from an analytical expression (i.e., a closed-form expression). In R though, we can produce these values simply with code, using the tools we've covered up to this point. AND we'll get a much better understanding of them along the way.
 
-## First things first, what are t-scores? 
-A t-score refers to the number of standard deviations away a given score is from the mean of the t-distribution. 
-So what is the mean of the t-distribution? It's usually 0.
+## First things first, what are t-scores?
 
-Why? We choose 0 because of how we will define a t-test. A t-test is a method for assessing the difference between our observed mean and "some other value." Typically, research hypotheses concern whether 'things are the same' or 'things are different.' and if we think about what 'things are the same' could mean quantitatively, we arrive at the idea that 'a number' minus 'another number' is 0 IF the two numbers are equal. 
+A t-score refers to the number of standard deviations away a given score is from the mean of the t-distribution. So what is the mean of the t-distribution? It's usually 0.
 
-However, given what we know about randomness due to random sampling variability at this point, we also know that we'll never observe an exact difference of 0 even if the true difference at the population level IS 0. 
+Why? We choose 0 because of how we will define a t-test. A t-test is a method for assessing the difference between our observed mean and "some other value." Typically, research hypotheses concern whether 'things are the same' or 'things are different.' and if we think about what 'things are the same' could mean quantitatively, we arrive at the idea that 'a number' minus 'another number' is 0 IF the two numbers are equal.
 
-Let's prove that to ourselves right now. 
+However, given what we know about randomness due to random sampling variability at this point, we also know that we'll never observe an exact difference of 0 even if the true difference at the population level IS 0.
 
-We'll draw 20,000 samples, each with 100 members, from the a population and compare their means. 
+Let's prove that to ourselves right now.
+
+We'll draw 20,000 samples, each with 100 members, from the a population and compare their means.
+
 ```{r}
 differences <- sapply(1:10000,function(repetition){
   sample1.mean <- mean(sample(population,size=100))
@@ -976,21 +1068,29 @@ any(differences==0) #Returns: FALSE. The function any() will return 'TRUE' if an
 So, we never observe an exact difference of 0 and we do observe lots and lots of differences that arise purely to random sampling variability. How, then, in the real world, do we know when the difference we do observe is not simply due to that random sampling variability? We turn the problem inside out.
 
 Instead of trying to prove that there IS a difference. Let's try to prove that the difference we observe IS NOT due random sampling variability. How? Let's look at the distribution of differences we produced above.
+
 ```{r}
 plot(density(differences)) 
 ```
+
 What do we see? We see that some differences occur with great frequency and other with rare frequency. But, we defined this distribution specifically so that we KNOW there are no differences at the population level. SO, if we observed a difference that was very very far away from the differences included in this distribution, we could be reasonably confident that the observed difference would not belong to this distribution and therefore would not be caused by random sampling variability. This line of reasoning is the CORE of statistical inference when probability is defined as a frequency.
 
 > *Sidenote:* Definition of Probability <br>
-> <p style="text-indent: 2em;">Probability does not have to be defined as a frequency. A frequency does not encapsulate the entirety of probabilities. What if an event only occurs 1 time ever? And what about the past when an event has already happened. For example, you flip a coin and it lands either heads or tails... it either IS or IS NOT heads or tails after it has landed so talking about the frequency of landing isn't so meaningful. Those events are encapsulated in Bayesian statistics. In Bayesian statistics, probabilities are more like a measure of belief. You can believe or not believe that a unique 1 time event will occur or that a coin has or has not landed on heads. </p>
+>
+> <p style="text-indent: 2em;">
+>
+> Probability does not have to be defined as a frequency. A frequency does not encapsulate the entirety of probabilities. What if an event only occurs 1 time ever? And what about the past when an event has already happened. For example, you flip a coin and it lands either heads or tails... it either IS or IS NOT heads or tails after it has landed so talking about the frequency of landing isn't so meaningful. Those events are encapsulated in Bayesian statistics. In Bayesian statistics, probabilities are more like a measure of belief. You can believe or not believe that a unique 1 time event will occur or that a coin has or has not landed on heads.
+>
+> </p>
 
-If we're defining probabilities in terms of frequencies, then  we need a unit of measurement. The differences distribution used above was the differences of mean scores and most data do not have this scale.
+If we're defining probabilities in terms of frequencies, then we need a unit of measurement. The differences distribution used above was the differences of mean scores and most data do not have this scale.
 
 We could standardize the differences! Just divide by the standard deviation. That gives us a scale invariant interpretation of the difference scores.
 
 BUT! We compared MEANs... so we should standardize by the standard deviation of MEANs... That is, we need to divide by Standard Error.
 
-So, let's go back and do that now: 
+So, let's go back and do that now:
+
 ```{r}
 standardized.differences <- sapply(1:10000,function(repetition){ n <- 100 
 a <- sample(population,size=n) 
@@ -1003,6 +1103,7 @@ return((mean(a)-mean(b))/standard.error)})
 
 sd(standardized.differences) #Returns approximately 1. 
 ```
+
 How delightful! Even though the standard deviation of the samples was 10 (because we set the population standard deviation to 10), we get back a distribution with a standard deviation of 1 (we used 10k samples so it might not be exactly 1 but it is 1 in expectation)... and it doesn't matter at all what the standard deviation of the samples was in the original data, because we're now talking about the standard deviation in the standardized data.
 
 ```{r}
@@ -1012,29 +1113,38 @@ plot(density(standardized.differences))
 What do we see? It appears to be another normal distribution. It's not. But it's very similar. Our new really cool tool is the t-distribution. Specifically, we have the t-distribution with 198 degrees of freedom.
 
 ## Using the t-distribution
+
 What percentage of the time is the difference between sample means (when both population means are identical) more extreme than either 1.96 or -1.96 standard errors?
+
 ```{r}
 mean(abs(standardized.differences)>=1.96)
 ```
+
 APPROXIMATELY 5%. THAT is where the t-table comes from. And, that number is a p-value. TO summarize, the p-value is the percentage of times/proportion of times, that the observed differences are as great or greater than the specified threshold.
 
-In R, we can also verify this directly with a function qt(). You can see it's formula on the help page. use: ?qt In this case, we had 198 degrees of freedom so we use that distribution. In the function below, we're asking for the t-scores at each probability from .001 to 1. 
+In R, we can also verify this directly with a function qt(). You can see it's formula on the help page. use: ?qt In this case, we had 198 degrees of freedom so we use that distribution. In the function below, we're asking for the t-scores at each probability from .001 to 1.
+
 ```{r}
 analytically.computed.tscores <- sapply(seq(.001,1,.001),function(x){ qt(x,198)})
 
 plot(density(standardized.differences))
 lines(density(analytically.computed.tscores),col='red')
 ```
-And we can now see on the plot that both the analytically computed t-scores and the t-scores we computed from simulations are almost identical. 
+
+And we can now see on the plot that both the analytically computed t-scores and the t-scores we computed from simulations are almost identical.
+
 ```{r}
 qt(.975,198) #The exact critical value for an 'alpha' of .05. 
 ```
+
 Below is the estimated probability level using a two-tailed test. We will likely see a slightly different value than .05 value here because, our simulations can only operate within the distribution... so our simulation will have a tendency to systematically underestimate the amount of observations at the extremes.
+
 ```{r}
 mean(abs(standardized.differences)>=1.972017) 
 ```
 
 Before going further. Let's also look at how the t-distribution changes when we have fewer samples. Let's compare the distribution when we have just 30 degrees of freedom and just 10.
+
 ```{r}
 t30 <- sapply(seq(.001,1,.001),function(x){ qt(x,30)}) 
 t10 <- sapply(seq(.001,1,.001),function(x){ qt(x,10)})
@@ -1043,6 +1153,7 @@ lines(density(analytically.computed.tscores),col='red')
 lines(density(t30),col='purple') 
 lines(density(t10),col='blue') 
 ```
+
 All curves are very similar.... HOWEVER, they're not exactly the same. The t-distributions with fewer degrees of freedom are slightly lower in the middle near the 'peak' and slightly higher along the tails. You can see this more easily if you zoom in.
 
 ## What if we have just had 1 sample to work with?
@@ -1051,12 +1162,15 @@ In the demonstration above we had two samples known to be drawn from the same po
 
 Suppose we want to know if the average score on a measure of intelligence from a group of 500 college students is different from the population average.
 
-Lets simulate the distribution of that population: 
+Lets simulate the distribution of that population:
+
 ```{r}
 popdist <- rnorm(n=100000,mean=100,sd=15) 
 plot(density(popdist,bw=10),col='red',lwd=2,ylim=c(0,.05),xlim=c(0,190)) # bw is bandwidth. Larger bandwith = smoother plotting. col=color. lwd= line thickness. ylim/xlim set the limits of the plot axes.
 ```
-Now let's simulate our single hypothetical sample: 
+
+Now let's simulate our single hypothetical sample:
+
 ```{r}
 data <- sample(85:115,size=500,replace=T,prob=c(1/(abs(24.9-(1:31))))) #This code below says, 'sample 100 values from the range 70 through 130. Since there are 61 whole numbers in this range and we need 500 samples, repeatedly draw values as needed. However, not all values are equally likely to be observed in this group. Instead, I'm making up scores. I'm telling the function to sample each value according to its probability of being observed which I've defined arbitrarily as 1/abs(45.9 minus the rank of value in the range of possible values)'
 
@@ -1071,21 +1185,26 @@ lines(density(data,bw=10),col='blue',lwd=2) #And let's also add the means from e
 abline(v=100,col='red',lwd=2)
 abline(v=mean(data),col='blue',lwd=2) #Beautiful stuff... 
 ```
-It looks like the two mean groups *might* be different but how can we formalize this?
-What if we just subtracted the population mean of intelligence scores from every sample value instead of doing all this guesswork with the plot? 
+
+It looks like the two mean groups *might* be different but how can we formalize this? What if we just subtracted the population mean of intelligence scores from every sample value instead of doing all this guesswork with the plot?
+
 ```{r}
 data.minus.population.mean <- data-100 #population mean was 100 by definition. 
 hist(data.minus.population.mean) 
 ```
+
 We can see in the histogram that there are a good range of values in the sample.
 
 What was the implication of that subtraction though? We just made a new sample. We subtracted the population mean and NOW we have a sample of differences. What if we computed the mean of that sample....
+
 ```{r}
 mean(data.minus.population.mean)
 ```
-How do we interpret this new mean?  This new mean is the average distance away from 100 our sample data are. 
 
-How could we assess the quality of that mean? With its standard error. 
+How do we interpret this new mean? This new mean is the average distance away from 100 our sample data are.
+
+How could we assess the quality of that mean? With its standard error.
+
 ```{r}
 standardized.mean.difference <- mean(data.minus.population.mean)/
   (sd(data.minus.population.mean)/
@@ -1095,35 +1214,33 @@ print(standardized.mean.difference)
 
 How? Recall that we're talking about standard error of differences. If the sample was from the same population, then the mean difference should be 0.
 
-AND, if the sample is not from the same population the standardized score will be very far away from 0 standardized distances. 
+AND, if the sample is not from the same population the standardized score will be very far away from 0 standardized distances.
 
-We have observed that this score is about 11 standardized distances away from the population mean of 100. So, we turn to the t-distribution and see what percentage of times a score of 11 or greater is observed. 
+We have observed that this score is about 11 standardized distances away from the population mean of 100. So, we turn to the t-distribution and see what percentage of times a score of 11 or greater is observed.
+
 ```{r}
 pt(standardized.mean.difference,df=499,lower.tail = F) 
 ```
-The pt() function returns the probability. If our standardized mean difference was LESS (i.e., negative) we'd use lower.tail= T. 
-We interpret the p-value as 'the probability that there is NO difference between the mean of student sample scores and the population mean is less than .000000.
 
-Admittedly this type of inference is backwards and unsatisfying in some regards.
-- We took some real data to do some computations. 
-- Then from those computations we got a standardized mean difference score. 
-- Then we said 'how often is a score this extreme observed when we know our data come from the same population.' 
+The pt() function returns the probability. If our standardized mean difference was LESS (i.e., negative) we'd use lower.tail= T. We interpret the p-value as 'the probability that there is NO difference between the mean of student sample scores and the population mean is less than .000000.
 
-The two distributions (i.e., the real data and the t-distribution) are still separate and they do not mix. But we have nevertheless used one distribution to talk about the other. 
+Admittedly this type of inference is backwards and unsatisfying in some regards. - We took some real data to do some computations. - Then from those computations we got a standardized mean difference score. - Then we said 'how often is a score this extreme observed when we know our data come from the same population.'
+
+The two distributions (i.e., the real data and the t-distribution) are still separate and they do not mix. But we have nevertheless used one distribution to talk about the other.
 
 It's a type of sleight of hand. The question we want to answer is not the question we are able to answer with this type of approach. For this reason, it is imperative that our studies be designed with extreme care. If they aren't, the differences we find between models will not be due to the reasons we think.
 
 Put differently, our t-test is only indicating merely how easily our data could have been generated by a random process while what we really want to know is simply how our data have been generated.
 
+# Confidence Intervals
 
-# Confidence Intervals 
-Confidence intervals are a slightly different method of doing the same type of inference shown above. In the inference above, we aimed to determine how frequently a value as extreme or greater than our observed standardized mean difference was seen in a distribution based on a true mean difference of 0. Rather than frame the inference in terms of the 'no mean difference distribution (null distribution)', confidence intervals are a method for constructing a range around our estimated mean difference which relates to the true population mean difference in another frequency based manner. 
+Confidence intervals are a slightly different method of doing the same type of inference shown above. In the inference above, we aimed to determine how frequently a value as extreme or greater than our observed standardized mean difference was seen in a distribution based on a true mean difference of 0. Rather than frame the inference in terms of the 'no mean difference distribution (null distribution)', confidence intervals are a method for constructing a range around our estimated mean difference which relates to the true population mean difference in another frequency based manner.
 
-Specifically, we can defined a confidence interval estimation procedure.  Then, using this procedure we can assess the procedure itself.  When we do we're saying that we're able to construct an interval such that IF we were to construct the interval on an infinite series of experiments, in 95% of those experiments the true population mean difference would be found within the interval. By definition, this means that the the probability of any given confidence interval from any one of the experiments, doesn't actually have a 95% of the population estimate being within it. 
+Specifically, we can defined a confidence interval estimation procedure. Then, using this procedure we can assess the procedure itself. When we do we're saying that we're able to construct an interval such that IF we were to construct the interval on an infinite series of experiments, in 95% of those experiments the true population mean difference would be found within the interval. By definition, this means that the the probability of any given confidence interval from any one of the experiments, doesn't actually have a 95% of the population estimate being within it.
 
 To make it compatible with the t-test above we simply apply some reasoning. We say 'given that this true population mean difference is likely to be within our interval', we determine whether or not our interval ALSO contains a value of 0. If 0 is not within the range, then it is not likely the case that the true population mean difference is 0.
 
-Clear as mud?  It might be. It relies on counterfactual thinking and that is not the typical method we use to think about the world. More on that later.  For now, let's demonstrate how confidence intervals work to clear up the confusion.
+Clear as mud? It might be. It relies on counterfactual thinking and that is not the typical method we use to think about the world. More on that later. For now, let's demonstrate how confidence intervals work to clear up the confusion.
 
 ## Constructing Confidence Intervals
 
@@ -1131,23 +1248,20 @@ How do we determine HOW to construct a confidence interval?
 
 First, recall above where I pointed out that it was 'delightful' that the standard deviation of a series of mean differences divided by their standard error is equal to 1. I said it was delightful because sd(standardized.differences) being equal to 1 shows us, again, that standard error is just another term for standard deviation of possible means.
 
-AND, as I showed very early in the content above, the standard deviation of a set of standardized observations is 1 no matter what the original standard deviation.  [To refresh your mind](#why-1-basic-algebra)
+AND, as I showed very early in the content above, the standard deviation of a set of standardized observations is 1 no matter what the original standard deviation. [To refresh your mind](#why-1-basic-algebra)
 
 Second, we now have the t-distribution and we know how to define intervals along it such that we can determine what proportion of mean differences 95% of all observable mean differences when the true mean difference is 0. #Finally, recall that the sample mean is an unbiased and consistent estimator of the population mean and that standard deviation is also a type of mean (but it requires a small adjustment for its bias).
 
-Putting all this together then, we can start by imagining that we have just 1 sample drawn from the t-distribution. Since we know that the sample mean is a good estimate of the population mean and the standard deviation is a good estimate of the population standard deviation, we can use those estimates to 'reproduce' our t-distribution. Lastly, since we're reconstructing the t-distribution from our estimates, can also use the same 95% cutoff values as if we had access to the whole t-distribution. 
+Putting all this together then, we can start by imagining that we have just 1 sample drawn from the t-distribution. Since we know that the sample mean is a good estimate of the population mean and the standard deviation is a good estimate of the population standard deviation, we can use those estimates to 'reproduce' our t-distribution. Lastly, since we're reconstructing the t-distribution from our estimates, can also use the same 95% cutoff values as if we had access to the whole t-distribution.
 
 Putting these together allows us to systematically construct a confidence interval.
 
-NEXT, we test whether this approach to constructing the confidence interval results in estimates that are accurate according to the definition we laid out above. 
+NEXT, we test whether this approach to constructing the confidence interval results in estimates that are accurate according to the definition we laid out above.
 
 That is, if we repeatedly draw samples and repeatedly construct confidence intervals, will 95% of those experiments contain the true population value within the confidence intervals?
 
-The answer is yes. 
-Let's demonstrate it. 
-We'll run 10k experiments.
-Within each experiment we'll construct a confidence interval. 
-Then, for each experiment, we'll determine whether or not the confidence interval contains 0. Again, we test for 0 because 0 is the 'true population value' for the t-distribution when we are saying that our 'two means are the same'. 
+The answer is yes. Let's demonstrate it. We'll run 10k experiments. Within each experiment we'll construct a confidence interval. Then, for each experiment, we'll determine whether or not the confidence interval contains 0. Again, we test for 0 because 0 is the 'true population value' for the t-distribution when we are saying that our 'two means are the same'.
+
 ```{r}
 coverage.frequency <- sapply(1:10000,function(repetition){ 
   n <- 100 
@@ -1172,12 +1286,13 @@ return(flag)})
 #Lastly, we count our 'flags' from the experiments. 
 table(coverage.frequency) #Shows that approximately 95% of the experiments do contain the true population value.
 ```
-Above, we demonstrated that the confidence interval procedure works as intended.  
 
-So, how do we get from the distribution of these experiments back to our data? 
-We convert in the same way as we did in the beginning of this document. That is, we would subtract the mean and divide by the standard deviation. Then we multiply by the standard deviation of the distribution we're converting to and add in the mean of the new distribution.
+Above, we demonstrated that the confidence interval procedure works as intended.
 
-We start with our standardized differences where we know the population value is 0. 
+So, how do we get from the distribution of these experiments back to our data? We convert in the same way as we did in the beginning of this document. That is, we would subtract the mean and divide by the standard deviation. Then we multiply by the standard deviation of the distribution we're converting to and add in the mean of the new distribution.
+
+We start with our standardized differences where we know the population value is 0.
+
 ```{r}
 #This is the same as previously shown above but it's included here for clarity.
 standardized.differences <- sapply(1:10000,function(repetition){ n <- 500 
@@ -1198,7 +1313,9 @@ standardized.differences <- standardized.differences-mean(standardized.differenc
 
 standardized.differences <- standardized.differences/sd(standardized.differences) 
 ```
-Now we have mean = 0 and sd = 1. 
+
+Now we have mean = 0 and sd = 1.
+
 ```{r}
 mean(standardized.differences) #Reminder: anything like -5.005435e-18 is due to floating point error. 
 sd(standardized.differences) 
@@ -1211,6 +1328,7 @@ standardized.differences <- standardized.differences+mean(data.minus.population.
 
 plot(density(standardized.differences)) 
 ```
+
 We have our distribution around the mean differences. Even though we did not run 10,000 experiments, since we know how distribution behaves based on 1 sample, we can use our 1 sample to generate this distribution as we did above.
 
 ```{r}
@@ -1220,11 +1338,13 @@ lowerlimit.95confidenceinterval <- mean(standardized.differences)-1.964739*sd(st
 
 table(standardized.differences<upperlimit.95confidenceinterval & standardized.differences>lowerlimit.95confidenceinterval) #Approximately 95%. 
 ```
+
 So, given this observation AND the observation that the true population value will be found within the confidence interval for 95% of experiments, we can finally test whether 0 is in the interval or not.
 
 ```{r}
 upperlimit.95confidenceinterval <0 & lowerlimit.95confidenceinterval>0 #Returns: FALSE. 
 ```
+
 Therefore, 0 is not within the confidence interval and we conclude that the difference we have observed is not due to random sampling variability.
 
 Does all this seem sufficiently confusing or what! Is there a simpler, more direct way? Yes, cross-validation.
@@ -1233,8 +1353,8 @@ Does all this seem sufficiently confusing or what! Is there a simpler, more dire
 
 The classical approach to inference using counterfactual thinking is quite confusing to learn. It has also been criticized by many for its fragility. For example, despite the name, the coverage of the 95% confidence intervals is not always the true coverage. Instead, the coverage rates depend on other underlying assumptions. In particular, the random sampling is really important because it determines how accurately the standard error will be computed.
 
-With cross-validation, we aren't working with a hypothetical reality. Instead, we simply estimate a model on one set of data. Then, we test that model on another set of data. The idea is that IF the model values are useful, then when the model is applied to the new data it will perform better than an alternative model. The alternative model can be any model but to be equivalent to the classical inference, we can define the alternative model so that it is equal to the model implied by the t-test.  That is, we set it be a model implying no mean difference (also known as a null model or null hypothesis model). 
-So, if we predicted all scores in our 'data' object by the mean of the population (i.e.,100), we could compare the overall error with the overall error when we compute a mean on a subset of the 'data' object and use it to predict the remaining subset of observations. 
+With cross-validation, we aren't working with a hypothetical reality. Instead, we simply estimate a model on one set of data. Then, we test that model on another set of data. The idea is that IF the model values are useful, then when the model is applied to the new data it will perform better than an alternative model. The alternative model can be any model but to be equivalent to the classical inference, we can define the alternative model so that it is equal to the model implied by the t-test. That is, we set it be a model implying no mean difference (also known as a null model or null hypothesis model). So, if we predicted all scores in our 'data' object by the mean of the population (i.e.,100), we could compare the overall error with the overall error when we compute a mean on a subset of the 'data' object and use it to predict the remaining subset of observations.
+
 ```{r}
 null.hypothesis.model <- mean((data-100)^2) #This is the data minus the mean of the population. Notice that this formula is equivalent to variance. This metric is most commonly referred to as Mean Squared Error in the context of prediction. 
 
@@ -1255,49 +1375,40 @@ print(R.squared)
 ```{r}
 plot(density(MSE.estimates)) 
 ```
+
 Finally, to interpret this version of R.squared we simply consider its meaning.
 
-It is 1- a ratio. So, it is similar to a percentage. 
+It is 1- a ratio. So, it is similar to a percentage.
 
-However, if the alternative hypothesis model is considerably worse than the null hypothesis model, the R-squared value in this formulation can be negative. In general, it is useful to treat R-squared as a percentage and to think that R-squared refers to the percentage of variance one model accounts for relative to another. 
+However, if the alternative hypothesis model is considerably worse than the null hypothesis model, the R-squared value in this formulation can be negative. In general, it is useful to treat R-squared as a percentage and to think that R-squared refers to the percentage of variance one model accounts for relative to another.
 
 Additionally, usually the null hypothesis concerns the idea that there is no difference or that an independent variable does not predict a dependent variable. In those cases, the null hypothesis model will have a Mean squared error that is equal to the variance of the dependent variable. The interpretation of R-squared in those cases is the amount of variance accounted by the alternative model. This leads to an important point: Picking a bad null hypothesis model will not allow you to know how good your alternative hypothesis model actually is.
 
-Cross-validation seems like a much more straightforward way to evaluate hypotheses, right? No t-distributions or sleight-of-hand/counterfactual thinking. In fact, it directly resembles our basic intuitions and reasoning about the world. 
-1. Get an idea. 
-2. Test that idea. 
-3. Determine if the idea was good or not based on the result. 
+Cross-validation seems like a much more straightforward way to evaluate hypotheses, right? No t-distributions or sleight-of-hand/counterfactual thinking. In fact, it directly resembles our basic intuitions and reasoning about the world. 1. Get an idea. 2. Test that idea. 3. Determine if the idea was good or not based on the result.
 
-Soooooo where's the problem? 
-First of all, the properties of cross-validation are not as well understood as classical tools. AND we do know that it has some limitations. That's not surprising though. All methods of inference have weaknesses. 
+Soooooo where's the problem? First of all, the properties of cross-validation are not as well understood as classical tools. AND we do know that it has some limitations. That's not surprising though. All methods of inference have weaknesses.
 
 The second issue is by splitting up the data, we lose some statistical power ( the estimator is biased, specifically pessimistically/negatively biased). If we have thousands of data points then it will not likely matter. But if we have small numbers of data points it could matter a lot. So, it matters which type of tool/test we use when we are making inferences because they don't all behave the same under the same conditions.
 
-That's all for now.  There will be more topics to come soon. 
-
-# Examples of More topics to come in no particular order.
-ANOVA. Analysis of Variance. 
-Another method for approaching tests of mean differences between groups is with ANOVA. The basic idea of ANOVA is that IF two samples are drawn from the same population, THEN there will be more variance of within the respective samples than between them. This observation derives from the expectation that, on average, samples drawn from the same population will have the SAME mean and that there is variance among samples in ALL cases due to the population being a distribution.
+That's all for now. There will be more topics to come soon.
+<div style="font-size: 24px;">
+# Examples of more topics to come in no particular order
+</div>
+ANOVA. Analysis of Variance. Another method for approaching tests of mean differences between groups is with ANOVA. The basic idea of ANOVA is that IF two samples are drawn from the same population, THEN there will be more variance of within the respective samples than between them. This observation derives from the expectation that, on average, samples drawn from the same population will have the SAME mean and that there is variance among samples in ALL cases due to the population being a distribution.
 
 F-statistic.An F-statistic is just a ratio made by taking the variances between the groups being compared and the variances within the groups. When variances between the groups is relatively larger than the variances within the groups, we can infer that the groups belong to different populations.
 
 It is ALSO, the case that F-statistics are often discussed a ratio made by taking the variance accounted for (sometimes referred to as the variance 'explained') by a model and the remaining variance (most often referred to as the 'residual' variance). The F-test is more general than the t-test.
 
-Statistical Power/Precision. (Type 1 vs Type 2 errors) 
-Effect size estimates. 
+Statistical Power/Precision. (Type 1 vs Type 2 errors) Effect size estimates.
 
+How convenience sampling affects sampling distributions -\> the accuracy of standard error estimates -\> and the coverage properties of confidence intervals.\
+Does cross-validation suffer the same limitations as t-tests when convenience sampling is used?
 
-How convenience sampling affects sampling distributions -> the accuracy of standard error estimates -> and the coverage properties of confidence intervals.  
-Does cross-validation suffer the same limitations as t-tests when convenience sampling is used? 
+Relatedly, how does data splitting in cross-validation trade-off power? When you cross-valdiate, you lose some power, but it's an empirical question as to how much you lose. At the same time, when the data do not perfectly conform to the required properties (see the examples near the end of sd vs md.R), power will suffer when not using cross-validation. So, if using cross-validation compensates for those issues, then it may result in a net gain of power in some cases.
 
-Relatedly, how does data splitting in cross-validation trade-off power?  When you cross-valdiate, you lose some power, but it's an empirical question as to how much you lose.  At the same time, when the data do not perfectly conform to the required properties (see the examples near the end of sd vs md.R), power will suffer when not using cross-validation. So, if using cross-validation compensates for those issues, then it may result in a net gain of power in some cases. 
+Linear regression (including models as mapping functions rather than as lines) correlation (Pearson, Spearman)
 
-Linear regression (including models as mapping functions rather than as lines)
-correlation (Pearson, Spearman) 
+Also, a bit on why linear models are not all inclusive for hypothesis testing.
 
-Also, a bit on why linear models are not all inclusive for hypothesis testing. 
-
-We'll also get to fun ML stuff. For example, we'll use the basic skills built in this document to look at the sampling distributions of neural networks and decision trees. 
-
-
-
+We'll also get to fun ML stuff. For example, we'll use the basic skills built in this document to look at the sampling distributions of neural networks and decision trees.
