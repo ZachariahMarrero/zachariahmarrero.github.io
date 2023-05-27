@@ -248,6 +248,9 @@ Lastly, we make our population. We'll start with the function rnorm. This functi
 ```{r}
 population <- rnorm(n=N,mean=population.mean,sd=population.standard.deviation)
 ```
+> *Sidenote:* rnorm<br>
+> <p style="text-indent: 2em;">
+> To see how functions like rnorm are constructed have a look at: [Rnorm from scratch.R](https://raw.githubusercontent.com/ZachariahMarrero/Accelerated-Statistical-Learning/main/Rnorm%20from%20scratch.R) </p>
 
 > *Sidenote:* R help<br>
 >
@@ -439,7 +442,7 @@ A histogram simply counts the number of observations within specified ranges of 
 
 A density plot is similar to a histogram. However, instead of using columns and adjusting the number of bins (i.e., the intervals) for the data to be counted in, a density plot will smooth the data using something called a 'kernel function'. A useful conceptual way to think about the plot is like the an attempt to blend the bins together or an average of an infinite set of histograms with every possible number of bins.
 
-It's important to note that both density plots and histograms can be very misleading. However, it's easier to spot problems when you are actively testing different configurations. As you'll see below, constructing a usable density plot is very easy (even though the underlying math is a bit elaborate. (See: Density Plot from scratch.R for an implementation of a density plot). So, if visualization is important for your task/process, you should explore the impact of picking different numbers of bins or different values in the case of density plot.
+It's important to note that both density plots and histograms can be very misleading. However, it's easier to spot problems when you are actively testing different configurations. As you'll see below, constructing a usable density plot is very easy (even though the underlying math is a bit elaborate. (See: [Density Plot from scratch.R](https://raw.githubusercontent.com/ZachariahMarrero/Accelerated-Statistical-Learning/main/Density%20Plot%20from%20scratch.R) for an implementation of a density plot). So, if visualization is important for your task/process, you should explore the impact of picking different numbers of bins or different values in the case of density plot.
 
 > *Sidenote:* Density vs histograms and plotting strategies<br>
 >
