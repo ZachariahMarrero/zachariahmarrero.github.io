@@ -1332,7 +1332,8 @@ plot(density(standardized.differences))
 We have our distribution around the mean differences. Even though we did not run 10,000 experiments, since we know how distribution behaves based on 1 sample, we can use our 1 sample to generate this distribution as we did above.
 
 ```{r}
-sd(standardized.differences) #This is equal to the standard error. qt(.975,df=498,lower.tail = T) #The cutoff value for the 95% threshold as before. =1.964739
+sd(standardized.differences) #This is equal to the standard error. 
+qt(.975,df=498,lower.tail = T) #The cutoff value for the 95% threshold as before. =1.964739
 upperlimit.95confidenceinterval <- mean(standardized.differences)+1.964739*sd(standardized.differences) 
 lowerlimit.95confidenceinterval <- mean(standardized.differences)-1.964739*sd(standardized.differences) 
 
@@ -1392,9 +1393,10 @@ The second issue is by splitting up the data, we lose some statistical power ( t
 
 That's all for now. There will be more topics to come soon.
 
-<div style="font-size: 10px;">
-# Examples of more topics to come in no particular order
-</div>
+
+# Examples of more topics to come 
+
+in no particular order.....
 
 ANOVA. Analysis of Variance. Another method for approaching tests of mean differences between groups is with ANOVA. The basic idea of ANOVA is that IF two samples are drawn from the same population, THEN there will be more variance of within the respective samples than between them. This observation derives from the expectation that, on average, samples drawn from the same population will have the SAME mean and that there is variance among samples in ALL cases due to the population being a distribution.
 
