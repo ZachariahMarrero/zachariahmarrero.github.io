@@ -9,7 +9,7 @@ css: AcceleratedStatsLearning_styles.css
 toc: true
 toc-depth: 4
 ---
-Optional: [Download this document to run locally](https://raw.githubusercontent.com/ZachariahMarrero/Accelerated-Statistical-Learning/main/AcceleratedStatsLearning.qmd) (requires [Quarto](https://quarto.org/docs/download/) installation)<br>
+Optional: <a href= "https://raw.githubusercontent.com/ZachariahMarrero/Accelerated-Statistical-Learning/main/AcceleratedStatsLearning.qmd" download="AcceleratedStatsLearning.qmd"> Download this document to run locally</a> (requires [Quarto](https://quarto.org/docs/download/) installation)<br>
 
 ### Lessons within include: 
 
