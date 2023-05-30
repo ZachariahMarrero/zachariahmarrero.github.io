@@ -1,5 +1,6 @@
 ---
-title: "Accelerated Statistics Learning"
+title: "Accelerated Statistics"
+subtitle: "Learn Statistics in Depth and on an Accelerated Timeline"
 format: html
 editor: visual
 css: AcceleratedStatsLearning_styles.css 
@@ -7,31 +8,47 @@ toc: true
 toc-depth: 4
 ---
 
-# The Preamble
+## Lessons within include: 
+
+(not a comprehensive list)
+1. Simulating Data
+2. Measures of Central Tendency
+3. Sampling Distributions
+4. Defining, Deriving, and using Standard error
+5. Making Confidence Intervals
+6. Making a t-test
+7. Introduction to Cross-Validation 
+
+
+# A Preamble
 
 ## Who is this for?
 
-Everyone really. I've aimed to write this so that if you know nothing at all about statistics the material should be easy to follow. Nevertheless, in terms of content, the material also covers a great deal about computations in R and about computing. So, even if you know a lot about statistics already, you could learn about simulations, coding, and about how to effectively share your knowledge with a more general audience.
+Everyone, really. I've aimed to write this so that if you know nothing at all about statistics the material should be easy to follow. Additionally, the material covers coding, computations in R, and general computing. So, even if you know a lot about statistics already, there is a lot here for you too.
 
-## What is this thing you're reading?
+## What is it?
 
-It is a free resource that is intended to help you build a mental framework for statistical analyses. In particular, the emphasis is on demonstrations of derivations, building tools, and verbalizing much of the underlying logic, rationale, and intuitions that typically aren't stated anywhere. Most people have experienced the frustration that comes when an author presents a simple concept on one page and then uses the concept in a completely different manner on the next page (e.g., mathematics textbooks). Most often, the author is correct and the use of the concept is appropriate. However, there can be a lot of missing context that may be obvious to the author but is not necessarily obvious to the learner. Statistics is no different. In fact, it can be much worse due to the initial high barrier to entry and the growth in complexity from one concept to the next. Ultimately, the learner starts with an incomplete understanding of basic concepts and the error in their understanding of later concepts compounds.
+It is a free resource that is intended to help you build a mental framework for statistical analyses. In particular, the emphasis is on demonstrations of derivations, building statistical tools, and verbalizing much of the underlying logic, rationale, and intuitions that are typically implied but not stated in statistical training.
 
-To avoid such issues, instead of focusing purely on theoretical abstractions, this resource intends to interweave a comprehensive dialogue with concrete demonstration. The demonstrations are the secret sauce. They aim to provide a means for the learner to access the theoretical abstractions that might otherwise take a very long time to digest or build intuitions of. Additionally, throughout the writing there are comprehensive explanations and *sidenotes* that you will be unlikely to find elsewhere, certainly not in one location. In fact, much of the material is completely absent in textbooks and popular courses. Likewise, there will be additional *.R* files that extend the material to demonstrate important ideas, to help build important intuitions, and to serve as an foundation upon which more complex analyses or simulations may be built.
+Most people have experienced the frustration that comes when an author presents a simple concept on one page and then uses the concept in a completely different manner on the next page (e.g., mathematics textbooks). Most often, the author is correct and the use of the concept is appropriate. However, there can be a lot of missing context that may be obvious to the author but is not necessarily obvious to the learner. Statistics is no different. In fact, it can be much worse due to the initial high barrier to entry. Even the most basic statistical analysis will require understanding and juggling multiple concepts that are most often, not completely taught. Furthermore, the growth in complexity from one concept to the next ultimately compounds the error in understanding of later concepts.
+
+To avoid such issues, instead of focusing purely on theoretical abstractions, this resource intends to interweave a comprehensive dialogue with concrete demonstration. The demonstrations are the secret sauce. They aim to provide a means for the learner to access the theoretical abstractions that might otherwise take a very long time to digest or build intuitions of. The reality is simple: you don't have the time to think it all out.
+
+Additionally, throughout the writing there are comprehensive explanations and *sidenotes* that you will be unlikely to find elsewhere, certainly not in one location. In fact, much of the material is completely absent in textbooks and popular courses. Yet, the material in these sections can greatly facilitate both your understanding and your practical data analysis skills. Likewise, there will be additional *.R* files that extend the material to demonstrate important ideas, to help build important intuitions, and to serve as an foundation upon which more complex analyses or simulations may be built.
 
 ## Why write it and why should you read it?
 
 Statistical literacy is empowering. As a social scientist, I have deliberately exposed myself to a broad spectra of viewpoints and manners of thinking so that I am more capable of thinking about the behavior and psychological phenomena that structure our daily lives. From this experience, my opinion is that we generally do not teach skills for formal problem solving. This leave most people without a means to meaningfully evaluate truth claims outside of their intuitions. While relying on personal intuition is better than nothing, any one of us can be manipulated using our own personal biases and ignorance. Furthermore, both science and society today are highly complex machines that are increasing in complexity constantly. Although intuition still has value, it is a much less reliable method for evaluating truth claims in the present context than it may have been in the past. Consequently, the easiest person to fool is yourself when you rely purely on intuition. At the very least, statistical literacy offers a means to augment intuitions so that people can more readily question the validity of their own thoughts.
 
-I also wrote this because when I started my studies the explanations about statistical tools given to me were sometimes vague or incomplete. I'm a meticulous learner though and I found it to be very distracting and frustrating. In my mind, half-answered and unanswered questions accumulate like sticky notes on a computer monitor. They can be a kind of clutter or mental baggage. But, in the context of argumentation and evaluating truth claims, they are a measure of the strength of the argument, demonstrating how fragile it can be.
+I also wrote this because when I started studying statistics the explanations about statistical tools given to me were sometimes vague or incomplete. I'm a meticulous learner and I found it to be very distracting and frustrating. In my mind, half-answered and unanswered questions accumulate like sticky notes on a computer monitor. They can be a kind of clutter or mental baggage. But, in the context of argumentation and evaluating truth claims, they are a measure of the strength of the argument, demonstrating how fragile it can be. As a scientist, I don't want to rest important claims on flimsy evidence.
 
-For example, the beginning material here will work a lot with the formula for standard deviation. The formula requires that we take the square of differences before averaging and square rooting. However, we could just as easily, in fact much more easily, take the average of the absolute values. Doing so would eliminate both the squaring and the square root operations, which are known to introduce a bias. Yet, most researchers have no idea why we choose to take the square anyway. In fact, most researchers do not even view it as a choice to be made. ...And that matters. Basic intuition tells us that the formula with fewer steps is going to tend to be computed with fewer errors (especially when done by hand).
+As a basic example of the types of consideration covered in this material, the early content will work a lot with the formula for standard deviation. The formula requires that we take the square of differences before averaging and square rooting. However, we could just as easily, in fact much more easily, take the average of the absolute values. Doing so would eliminate both the squaring and the square root operations, which are known to introduce a bias. Yet, many researchers have no idea why we choose to take the square anyway. In fact, most researchers do not even view it as a choice to be made. ...And that matters. Basic intuition tells us that the formula with fewer steps is going to tend to be computed with fewer errors (especially when done by hand).
 
 > *Sidenote:* Why is Standard Deviation 'standard'? <br>
 >
 > <p style="text-indent: 2em;">
 >
-> The original name for standard deviation was 'root mean squared deviation.' It was kind of a mouthful. Karl Pearson, an icon in the study of statistics, started referring to it as standard deviation in the 1890s and the name basically just stuck. The 'standard,' then is really just a reference to the fact that it was used commonly or typically as opposed to other measures of deviation.
+> The original name for standard deviation was 'root mean squared deviation.' It was kind of a mouthful. Karl Pearson, an icon in the history of statistics, started referring to it as standard deviation in the 1890s and the name basically just stuck. The word 'standard,' then is really just a reference to the fact that it was used commonly or typically as opposed to other measures of deviation.
 >
 > </p>
 
@@ -39,24 +56,22 @@ As it turns out, computing average deviation with absolute values is much more e
 
 That said, the squaring operation affords a number of benefits. For example, the formula based on squaring is differentiable, which allows for an analytical approach to solving some problems rather than using numerical approximations. For example, Ordinary Least Squares regression can be solved analytically (i.e., in a single pass) vs Least Absolute Deviation regression which is solved numerically (i.e., an initial solution is made and then sequentially updated in multiple steps).
 
-## Additional reasons
+## Additional reasons why you should read it
 
-We've learned in the past 2 decades that many proposed explanations in the social sciences are wrong or at least certainly not as robust as originally portrayed. We're also seeing how the social sciences have also suffered a tremendous blow to credibility. In my mind, these issues are linked. Some researchers will debate the existence or importance of the link between statistical conventions and the credibility of social science but few will debate that the two issues exist. If you have not heard of it, the so-called 'replication crisis' is widely recognized as real (See: "[Editors' Introduction to the Special Section on Replicability in Psychological Science: A Crisis of Confidence?](https://journals.sagepub.com/doi/10.1177/1745691612465253)" and "[False-positive psychology: undisclosed flexibility in data collection and analysis allows presenting anything as significant.](https://journals.sagepub.com/doi/10.1177/0956797611417632)"). One way to contextualize the replication crisis as a phenomena, is as the slow acceptance or realization that many claims made about psychological processes in peer reviewed studies are false or problematic. For example, there are more than 200 different ways to measure depression. As a species, we've invested 10s of billions of dollars into the study of depression. However, among those 200+ assessment approaches,there is surprisingly poor overlap and it's not clear that we've made significant progress resolving this problem. And it is a problem. The World Health Organization in its report on [Depression and Other Common Mental Disorders](https://apps.who.int/iris/bitstream/handle/10665/254610/WHO-MSD-MER-2017.2-eng.pdf) estimates that there is more depression today than there are people with cardiac health problems.
+We've learned in the past 2 decades that many proposed explanations in the social sciences are wrong or at least certainly not as robust as originally portrayed. We're also seeing how the social sciences have also suffered a tremendous blow to credibility. It could be argued that this has had negative externalities for society writ-large. For example, would 'pop psychology' and a lot of the 'woo woo wellness' fads have such large followings if it was easier for the typical person to appreciate the difference between credible expertise and the alternative. In my mind, these issues are linked. Some researchers will debate the existence or importance of the link between statistical conventions and the credibility of social science but few will debate that the two issues exist. If you have not heard of it, the so-called 'replication crisis' is widely recognized as real (See: "[Editors' Introduction to the Special Section on Replicability in Psychological Science: A Crisis of Confidence?](https://journals.sagepub.com/doi/10.1177/1745691612465253)" and "[False-positive psychology: undisclosed flexibility in data collection and analysis allows presenting anything as significant.](https://journals.sagepub.com/doi/10.1177/0956797611417632)"). One way to contextualize the replication crisis as a phenomena, is as the slow acceptance or realization that many claims made about psychological processes in peer reviewed studies are false or problematic. For example, there are more than 200 different ways to measure depression. As a species, we've invested 10s of billions of dollars into the study of depression. However, among those 200+ assessment approaches,there is surprisingly poor overlap and it's not clear that we've made significant progress resolving this problem. And it is a problem. The World Health Organization in its report on [Depression and Other Common Mental Disorders](https://apps.who.int/iris/bitstream/handle/10665/254610/WHO-MSD-MER-2017.2-eng.pdf) estimates that there is more depression today than there are people with cardiac health problems.
 
-Some other examples of classical studies and their problems. The Stanley Milgram studies. Most of us are aware of 1 study. But in fact, there were at least 18 variations that were explored. The 1 study that was popularized, and is most taught, is the most extreme variation. (See: Gina Perry and the book "Behind the Shock Machine: The Untold Story of the Notorious Milgram Psychology Experiments").\
+Some other examples of classical studies and their problems. The Stanley Milgram studies. Most of us are aware of 1 study. But in fact, there were at least 18 variations that were explored. The 1 study that was popularized, and was the most taught until recently, is the most extreme variation. (See: Gina Perry and the book "Behind the Shock Machine: The Untold Story of the Notorious Milgram Psychology Experiments").\
 What about the Zimbardo Stanford Prison study? See: [The lifespan of a lie by Ben Blum](https://gen.medium.com/the-lifespan-of-a-lie-d869212b1f62)
 
-Okay, but those examples are more issues of experimental design... what about statistical issues? They do have statistical issues. In both of these cases, the researchers would have you believe that the results say something important about human psychology IN GENERAL. They don't.
+Okay, but those examples are more issues of experimental design... what about statistical issues? They do have statistical issues. In both of these cases, the researchers would have you believe that the results say something important about human psychology IN GENERAL. They don't, at least, not the claim made by the researchers anyway.
 
-Another more recent example, which pertains more to the mechanics of statistical analysis:
+Another more recent example, which pertains more to the mechanics of statistical analysis: **Power posing**. [Ted talk](https://www.ted.com/talks/amy_cuddy_your_body_language_may_shape_who_you_are?language=en)
 
-**Power posing**. See the [Ted talk](https://www.ted.com/talks/amy_cuddy_your_body_language_may_shape_who_you_are?language=en)
+If you're not aware of the issue, the gist as I understand it is as such: Exciting claims were made about the impact of standing with a specific posture on mental/physical processes. Upon further review, those claims are now known to be, at best, referring to something that is not true in the way that it was presented. For example, later replications with more tightly controlled statistical analysis found the effects to be smaller than originally reported.
 
-If you're not aware of the controversy, the gist as I understand it is as such: Exciting claims were made about the impact of standing with a specific posture on mental/physical processes. Upon further review, those claims are now known to be, at best, referring to something that is not true in the way that it was presented. For example, later replications with more tightly controlled statistical analysis found the effects to be smaller than originally reported.
+SO, the evidence is far less clear and far less compelling than the original reports would have you believe.
 
-SO, the evidence is far less clear and far less compelling than the original reports or the Ted talk would have you believe.
-
-In fact, some researchers argue that the statistical evidence is so weak that even if the effect exists, the existing published record is still more consistent with what we would expect to find when no effect exists than it is consistent with what would expect to find when an effect does exist. (See: Simmons and Simmonsohn (2017) "[Power Posing: P-Curving the Evidence](https://repository.upenn.edu/cgi/viewcontent.cgi?article=1373&context=fnce_papers)") However, the researchers behind power posing were not bad faith actors. In fact, their approach was well within the practices of psychological researchers at the time. Around the same time as the power posing work, separate groups of researchers had begun to investigate data analysis norms. The investigations revealed that as much as 70% of psychologists would regularly do things such as continue to collect new data until their results reached a level deemed statistically significant (see: [Measuring the Prevalence of Questionable Research Practices With Incentives for Truth Telling](https://www.cmu.edu/dietrich/sds/docs/loewenstein/MeasPrevalQuestTruthTelling.pdf)). That practice is a huge problem. Its like betting on a coin to be heads over tails. If you don't get heads the first time you move the goal posts and ask to do 2 out 3... or 3/5...4/7, etc. Eventually you will see at least 1 heads result.
+In fact, some researchers argue that the statistical evidence for power posing is so weak that even if the effect exists, the existing published record is still more consistent with what we would expect to find when no effect exists than it is consistent with what would expect to find when an effect does exist. (See: Simmons and Simmonsohn (2017) "[Power Posing: P-Curving the Evidence](https://repository.upenn.edu/cgi/viewcontent.cgi?article=1373&context=fnce_papers)") However, the researchers behind power posing were not bad faith actors. In fact, their approach was well within the practices of psychological researchers at the time. Around the same time as the power posing work, separate groups of researchers had begun to investigate data analysis norms. The investigations revealed that as much as 70% of psychologists would regularly do things such as continue to collect new data until their results reached a level deemed statistically significant (see: [Measuring the Prevalence of Questionable Research Practices With Incentives for Truth Telling](https://www.cmu.edu/dietrich/sds/docs/loewenstein/MeasPrevalQuestTruthTelling.pdf)). That practice is a huge problem. Its like betting on a coin to be heads over tails. If you don't get heads the first time you move the goal posts and ask to do 2 out 3... or 3/5...4/7, etc. Eventually you will see at least 1 heads result.
 
 Given the above, it is probably safe to assume there are thousands of papers spanning thousands of research questions with these types of problems in the published record. (See: One of the original articles leading in to the replication crisis article by John Ioannidis, [Why Most Published Research Findings Are False](https://journals.plos.org/plosmedicine/article/file?id=10.1371/journal.pmed.0020124&type=printable) and by Joseph Simmons, [False-positive psychology: undisclosed flexibility in data collection and analysis allows presenting anything as significant](https://pages.cs.wisc.edu/~jerryzhu/HAMLET/psyreplicability/Simmons_et_al2011.pdf).)
 
@@ -79,8 +94,6 @@ For example, Jonathan Haidt recently [provided testimony to the U.S. Congress](h
 Both science and society are highly complex machines. While relying on personal intuition is better than nothing, any one of us can be manipulated using own personal biases and ignorance. Furthermore, the easiest person to fool is yourself. (yes, I repeated that)
 
 So, there are many reasons why I would want to write something like this and why it could be a really useful tool for basically anyone. Let's begin.
-
-#  {#my-section}
 
 # The Beginning
 
@@ -142,7 +155,11 @@ N=1000000
 
 We will pretend that we have measured something of interest about those members. In real life, that 'something of interest' could be almost anything. (e.g., height, weight, intellectual ability, movie preferences or movie ratings, how much they like pizza, etc.)
 
-Next, we need a measurement. We'll use the mean. The mean shows up over and over again in statistics for many reasons. One reason is that each sample member contributes unique information to a sample mean. In contrast, the median is only affected by the percentile ranks of observations and the mode is affect only by the frequency of unique values across the sample members. To build an intuition, we'll simulate some random numbers here and compare how the mean, median, and mode of the set relate to each other as prediction rules. That is, we'll use the mean, median, or mode of the set to predict each of the members in the set and we'll rank them by the amount of error.
+### Measures of Central Tendency
+
+Next, we need a measurement. To keep things simple, we'll use the mean. The mean shows up over and over again in statistics for many reasons. One reason is that each sample member contributes unique information to a sample mean. However, it's important to be aware that we're making a deliberate choice when we choose to use the mean.The mean is just one [measure of central tendency](https://en.wikipedia.org/wiki/Central_tendency) (i.e., one measure which aims to describe the central mass of the data). Another measure that is widely known is the median. The median is sometimes used. It is only affected by the percentile ranks of observations and the mode is affect only by the frequency of unique values across the sample members.
+
+To build an intuition for why we use the mean, we'll simulate some random numbers here and compare how the mean, median, and mode (i.e., the number which occurs most frequently) of the set relate to each other as prediction rules. That is, we'll use the mean, median, or mode of the set to predict each of the members in the set and we'll rank them by the amount of error.
 
 ```{r}
 
@@ -168,9 +185,27 @@ cat(
   paste('Error for Mode:',sum((dist-dist.mode)^2)),
   sep = "\n")
 
-rm(dist,dist.mean,dist.median,dist.mode) #rm() will remove/delete whatever you put in the parenthesis to free up memory.
+
 
 ```
+
+For completeness, let's also make a visualization of these errors. Instead of defining the measure of central tendency, the code below will test every value between the smallest and largest value in our 'dist' object.
+
+```{r}
+#The line below says, compute the error for each 'value' in the set. Start with the smallest (i.e., min(dist)), then for each iteration add .01. Continue through the largest value (i.e., max(dist))
+result <- sapply(seq(min(dist),max(dist),.01),function(value){
+  sum((dist-value)^2)
+} )
+#The line below will plot the results 
+plot(min(dist)+.01*c(1:length(result)),result, main= "Distribution of Errors \n for each tested value",xlab="Tested Values", ylab = "The amount of error")
+
+#The line below will report the smallest error found and at what value.
+print(paste("Minimium of", min(result), "found at value of:", min(dist)+.01*c(1:length(result))[which(result==min(result))]))
+
+rm(dist,dist.mean,dist.median,dist.mode) #rm() will remove/delete whatever you put in the parenthesis to free up memory.
+```
+
+We can see in the simulation above the set of possible errors we can obtain from picking different values as our measure of central tendency. The errors form a nice U-shape pattern and the lowest point on this U-shape occurs at, or extremely close to, the mean.
 
 For the sake of simplicity, the average (another word for mean) of all measurements is going to be defined as 10.
 
@@ -248,9 +283,14 @@ Lastly, we make our population. We'll start with the function rnorm. This functi
 ```{r}
 population <- rnorm(n=N,mean=population.mean,sd=population.standard.deviation)
 ```
+
 > *Sidenote:* rnorm<br>
+>
 > <p style="text-indent: 2em;">
-> To see how functions like rnorm are constructed have a look at: [Rnorm from scratch.R](https://raw.githubusercontent.com/ZachariahMarrero/Accelerated-Statistical-Learning/main/Rnorm%20from%20scratch.R) </p>
+>
+> To see how functions like rnorm are constructed have a look at: [Rnorm from scratch.R](https://raw.githubusercontent.com/ZachariahMarrero/Accelerated-Statistical-Learning/main/Rnorm%20from%20scratch.R)
+>
+> </p>
 
 > *Sidenote:* R help<br>
 >
@@ -388,7 +428,7 @@ cat(paste(s.mean,s.sd,sep="\n"))
 
 Were both values 10? That's extremely unlikely to be the case.
 
-## Creating sampling distributions
+## Random Sampling Variability
 
 What if we repeat the sampling process?
 
@@ -400,7 +440,21 @@ cat(
   sep = "\n")
 ```
 
-Still not 10s...
+Still not 10s...why though? The reason why these estimates are not equal to the population values we defined is because of random sampling variability. Put simply, we do not have control over what members from the population will be included in our sample. In fact, as we'll see below, the accuracy of our statistical inference will *depend* on us not having control.
+
+> *Sidenote:* The evidentiary value of an anecdote.<br> Our sample above was comprised of 100 members. Even with 100 members, we could not perfectly estimate the mean of our population. If we imagine that each member of our sample was a different person, we can draw a clear parallel to the information conveyed in anecdotes.
+>
+> Anecdotes are accounts derived from personal experiences that are often used to support arguments or claims. In the course of everyday life, prior personal experiences are a necessary and effective heuristic for guiding one's behaviors in realtime that might be used as anecdotal evidence. However, the value of anecdotes is highest within the specific social and cultural context from which they are formualted and their value drops off steeply outside of those conditions. That is, the ability of a specific anecdote to carry general information is strongly limited. Therefore, in the context of statistical inference, where we aim to maximize the generalizbility of our statements to describe populations, anecdotes have very low evidentiary value. Individual experiences are just far too variable.
+>
+> The notion of random sampling variability helps to explain why this is the case. When we collect data from a sample, we expect some degree of variation due to chance. This variation can make it difficult to draw reliable conclusions based on a single anecdote or even a small collection of anecdotes. Without a representative sample that accounts for this variation, we cannot make valid claims about the broader population. Thus, while anecdotes can be interesting and engaging, they should not be relied upon as the sole evidence for a claim.
+>
+> As an example, let's say you're trying to determine the popularity of a new restaurant in your city. You ask 2 people what they think of the restaurant. Out of those 2 people, 1 raves about the amazing food and the other person bemoans a horrid experience. If you were to rely solely on these 2 anecdotes, the most accurate conclusion you can draw is that the restaurant could be good or bad. In other words, you gain almost no information that you can readily harness in determining the likely popularity of the restaurant. Even worse, if you tried to split the difference by saying that the food must be good but the service might be poor, you'd run in to even worse accuracy. You'd be estimating two things with half as much information each. So, either set of conclusions would be premature because of the effects of random variability inherent in any sample.
+>
+> To belabor the point a bit, it's possible that the two people you spoke to were not representative of the broader population. Random factors, such as the time of day the person visits the restaurant, might sufficiently influence either person's account. For example, the positive review could have been based on the fact that the person was starving before their visit while the negative review could have been associated with a generally bad day the other person was having. However,if you were to survey a larger and more diverse group of people, you might get a different result as each of these random factors would not apply to every person you survey.
+>
+> To draw more reliable conclusions about the popularity of the restaurant based on a collection of anecdotes, you would need to collect a potentially very large number accounts. In particular, the number of accounts you would want to collect should be proportional to the number of random factors that might influence an account. For example, some experiences are almost universally disliked (e.g., almost nobody enjoys getting a flat tire). If that is the nature of the question you are investigating, fewer overall accounts could be very informative. However, the tradeoff is that the more obvious the answer to a question is likely to be, the less of a need there is to investigate the question in the first place. In other words, the questions we end up investigating or debating are those that are inherently more difficult.
+
+## Creating sampling distributions
 
 What if we repeat the process a lot of times?
 
@@ -1070,6 +1124,18 @@ any(differences==0) #Returns: FALSE. The function any() will return 'TRUE' if an
 
 So, we never observe an exact difference of 0 and we do observe lots and lots of differences that arise purely to random sampling variability. How, then, in the real world, do we know when the difference we do observe is not simply due to that random sampling variability? We turn the problem inside out.
 
+> *Sidenote:* Why do we care about random sampling variability? <br>
+>
+> We care to know whether a difference that we have observed is due to random sampling variability or not because it is a direct reflection of the quality of the discriminations we want to make. For example, If a police officer is conducting an investigation and relying on certain behavioral indicators to determine whether someone is lying or not, but those indicators are not valid, it could lead to incorrect conclusions and potentially cause harm to innocent individuals.
+
+For example, imagine a police officer conducting a traffic stop believes that if a suspect avoids eye contact during questioning, it is a sign that they are lying. [This behavior is not a reliable indicator of deception.](https://link.springer.com/article/10.1007/s10919-012-0132-y)
+
+If the officer relies solely on this indicator to make a determination of whether to probe further, there decisions would be approximately as reliable as deciding whether to probe or not based purely on whether a flipped coin lands on heads vs tails. In turn, they may falsely accuse innocent people of offenses they did not commit, resulting in serious consequences, such as wrongful arrest, a tarnished reputation, and even imprisonment.
+
+Therefore, it is important for law enforcement officers to be aware of the limitations of behavioral indicators and to use them in conjunction with other evidence and investigative techniques. This can help ensure that their investigations are fair, accurate, and respectful of the rights of all individuals involved.
+
+imagine a study of cancer treatements. Suppose that we have an expensive experimental treatment that we give to one group and not another group in an experiment. If, at the end of the study, the amount of cancer measured in both groups is so similar that we cannot determine whether the differences are attributable to random sampling variabiltiy, then it means that people who don't receive the treatment have about just the same experience as those who do. In other words, one group spends a lot of money on a treatment and the other doesn't, but both groups end up in the same place.
+
 Instead of trying to prove that there IS a difference. Let's try to prove that the difference we observe IS NOT due random sampling variability. How? Let's look at the distribution of differences we produced above.
 
 ```{r}
@@ -1396,8 +1462,7 @@ The second issue is by splitting up the data, we lose some statistical power ( t
 
 That's all for now. There will be more topics to come soon.
 
-
-# Examples of more topics to come 
+# Examples of more topics to come
 
 in no particular order.....
 

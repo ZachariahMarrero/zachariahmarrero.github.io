@@ -13,7 +13,7 @@ website:
       - href: about.qmd
         text: About
       - href: AcceleratedStatsLearning.qmd
-        text: AcceleratedStatsLearning
+        text: Accelerated Statistics
 
 format:
   html:
