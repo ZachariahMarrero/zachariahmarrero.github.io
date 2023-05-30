@@ -9,32 +9,32 @@ css: AcceleratedStatsLearning_styles.css
 toc: true
 toc-depth: 4
 ---
-Optional: [Download this document to run locally](../AcceleratedStatsLearning.qmd){download="AcceleratedStatsLearning.qmd"} <br>
 
-### Lessons within include: 
+Optional: [Download this document to run locally](Navbar pages/AcceleratedStatsLearning.qmd){download="AcceleratedStatsLearning.qmd"} <br>
+
+### Lessons within include:
 
 (not a comprehensive list)
 
-1. Simulating Data <br>
+1.  Simulating Data <br>
 
-2. Defining Measures of Central Tendency from scratch  <br>
+2.  Defining Measures of Central Tendency from scratch <br>
 
-3. Making Sampling Distributions from scratch <br>
+3.  Making Sampling Distributions from scratch <br>
 
-4. Defining, Deriving, and using Standard error <br>
+4.  Defining, Deriving, and using Standard error <br>
 
-5. Making Confidence Intervals from scratch <br>
+5.  Making Confidence Intervals from scratch <br>
 
-6. Making a t-test from scratch <br>
+6.  Making a t-test from scratch <br>
 
-7. Introduction to Cross-Validation 
-
+7.  Introduction to Cross-Validation
 
 # A Preamble
 
 ## Who is this for?
 
-Everyone, really. I've aimed to write this so that if you know nothing at all about statistics the material should be easy to follow. Additionally, the material covers coding, computations in R, and general computing. So, even if you know a lot about statistics already, there is a lot here for you too. In fact, I would argue that most researchers do not know the derivations nor how to construct the tools covered in these first lessons. 
+Everyone, really. I've aimed to write this so that if you know nothing at all about statistics the material should be easy to follow. Additionally, the material covers coding, computations in R, and general computing. So, even if you know a lot about statistics already, there is a lot here for you too. In fact, I would argue that most researchers do not know the derivations nor how to construct the tools covered in these first lessons.
 
 ## What is it?
 
@@ -62,7 +62,7 @@ As a basic example of the types of consideration covered in this material, the e
 >
 > </p>
 
-As it turns out, computing average deviation with absolute values is much more efficient in some cases (See: [Revisiting a 90-year-old debate: the advantages of the mean deviation](http://emilkirkegaard.dk/en/wp-content/uploads/Revisiting-a-90-year-old-debate-the-advantages-of-the-mean-deviation.pdf), For an analysis informed by computer simulation, see: [sd vs md.R](../code/sd vs md.R){download="sd vs md.R"} . The word 'efficient' has a technical meaning here. In this case, it means something like 'if we desire X amount of precision, then average deviation with squaring will require more samples to achieve that precision than would average deviation using absolute values without squaring.'
+As it turns out, computing average deviation with absolute values is much more efficient in some cases (See: [Revisiting a 90-year-old debate: the advantages of the mean deviation](http://emilkirkegaard.dk/en/wp-content/uploads/Revisiting-a-90-year-old-debate-the-advantages-of-the-mean-deviation.pdf), For an analysis informed by computer simulation, see: [sd vs md.R](code/sd vs md.R){download="sd vs md.R"} . The word 'efficient' has a technical meaning here. In this case, it means something like 'if we desire X amount of precision, then average deviation with squaring will require more samples to achieve that precision than would average deviation using absolute values without squaring.'
 
 That said, the squaring operation affords a number of benefits. For example, the formula based on squaring is differentiable, which allows for an analytical approach to solving some problems rather than using numerical approximations. For example, Ordinary Least Squares regression can be solved analytically (i.e., in a single pass) vs Least Absolute Deviation regression which is solved numerically (i.e., an initial solution is made and then sequentially updated in multiple steps).
 
@@ -298,7 +298,7 @@ population <- rnorm(n=N,mean=population.mean,sd=population.standard.deviation)
 >
 > <p style="text-indent: 2em;">
 >
-> To see how functions like rnorm are constructed have a look at: [Rnorm from scratch.R](../code/Rnorm from scratch.R){download="Rnorm from scratch.R"}
+> To see how functions like rnorm are constructed have a look at: [Rnorm from scratch.R](code/Rnorm from scratch.R){download="Rnorm from scratch.R"}
 >
 > </p>
 
@@ -506,7 +506,7 @@ A histogram simply counts the number of observations within specified ranges of 
 
 A density plot is similar to a histogram. However, instead of using columns and adjusting the number of bins (i.e., the intervals) for the data to be counted in, a density plot will smooth the data using something called a 'kernel function'. A useful conceptual way to think about the plot is like the an attempt to blend the bins together or an average of an infinite set of histograms with every possible number of bins.
 
-It's important to note that both density plots and histograms can be very misleading. However, it's easier to spot problems when you are actively testing different configurations. As you'll see below, constructing a usable density plot is very easy (even though the underlying math is a bit elaborate. (See: [Density Plot from scratch.R](../code/Density Plot from scratch.R){download="Density Plot from scratch.R"} for an implementation of a density plot). So, if visualization is important for your task/process, you should explore the impact of picking different numbers of bins or different values in the case of density plot.
+It's important to note that both density plots and histograms can be very misleading. However, it's easier to spot problems when you are actively testing different configurations. As you'll see below, constructing a usable density plot is very easy (even though the underlying math is a bit elaborate. (See: [Density Plot from scratch.R](code/Density Plot from scratch.R){download="Density Plot from scratch.R"} for an implementation of a density plot). So, if visualization is important for your task/process, you should explore the impact of picking different numbers of bins or different values in the case of density plot.
 
 > *Sidenote:* Density vs histograms and plotting strategies<br>
 >

@@ -1,6 +1,6 @@
 ---
 title: "Zachariah Marrero,  PhD"
-css: styles.css
+css: ../styles.css
 image: mypic.png
 format: html
 about: 
@@ -18,7 +18,6 @@ about:
    - text: Twitter
      icon: twitter
      href: https://twitter.com/ZachariahNKM 
-
 ---
 
 ::: {#ppc}
@@ -26,4 +25,3 @@ I'm an experienced computational social scientist with a PhD in Social & Persona
 
 Lastly, there is a growing public awareness of the potential of AI. I count myself as a champion for AI integration in society and am dedicated to harnessing the power of AI to drive prosperity and defense, while maintaining a strong commitment to excellence and continuous growth.
 :::
-

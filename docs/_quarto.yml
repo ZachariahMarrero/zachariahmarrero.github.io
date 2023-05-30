@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: docs
+  output-dir: .
  
 website:
   title: "Zachariah Marrero PhD"
@@ -8,11 +8,11 @@ website:
   open-graph: true
   navbar:
     left:
-      - href: index.qmd
+      - href: Navbar pages/home_page.qmd
         text: Home
-      - href: about.qmd
+      - href: Navbar pages/about.qmd
         text: About
-      - href: AcceleratedStatsLearning.qmd
+      - href: Navbar pages/AcceleratedStatsLearning.qmd
         text: Accelerated Statistics
 
 format:

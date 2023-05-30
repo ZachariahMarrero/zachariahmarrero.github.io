@@ -1,6 +1,6 @@
 ---
 title: "Site Under active development"
-css: about_styles.css
+css: about.css
 id: about_text
 ---
 
