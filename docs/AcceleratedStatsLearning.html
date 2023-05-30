@@ -229,7 +229,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="lessons-within-include" class="level3">
 <h3 class="anchored" data-anchor-id="lessons-within-include">Lessons within include:</h3>
-<p>(not a comprehensive list) 1. Simulating Data <br> 2. Measures of Central Tendency <br> 3. Sampling Distributions <br> 4. Defining, Deriving, and using Standard error <br> 5. Making Confidence Intervals <br> 6. Making a t-test <br> 7. Introduction to Cross-Validation</p>
+<p>(not a comprehensive list)</p>
+<ol type="1">
+<li><p>Simulating Data <br></p></li>
+<li><p>Defining Measures of Central Tendency from scratch <br></p></li>
+<li><p>Making Sampling Distributions from scratch <br></p></li>
+<li><p>Defining, Deriving, and using Standard error <br></p></li>
+<li><p>Making Confidence Intervals from scratch <br></p></li>
+<li><p>Making a t-test from scratch <br></p></li>
+<li><p>Introduction to Cross-Validation</p></li>
+</ol>
 </section>
 <section id="a-preamble" class="level1">
 <h1>A Preamble</h1>
@@ -341,9 +350,9 @@ What about the Zimbardo Stanford Prison study? See: <a href="https://gen.medium.
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste</span>(<span class="st">"Mode:"</span>,dist.mode),</span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Mean: 3.51666666666667
-Median: 3
-Mode: 3</code></pre>
+<pre><code>Mean: 3.71666666666667
+Median: 4
+Mode: 6</code></pre>
 </div>
 </div>
 <p>We compute the sum of the squared values of each member of dist predicted by the mean of dist. This makes sense since a perfect prediction would have 0 error. So our metric captures a useful definition of ‘error’. Notice that I wrote ‘useful.’ If we were to use the absolute values of each member (e.g., sum(abs(dist-dist.mean)) ), the mean would often be worse than the median and sometimes worse than the mode.</p>
@@ -354,9 +363,9 @@ Mode: 3</code></pre>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste</span>(<span class="st">'Error for Mode:'</span>,<span class="fu">sum</span>((dist<span class="sc">-</span>dist.mode)<span class="sc">^</span><span class="dv">2</span>)),</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Error for Mean: 850.916666666665
-Error for Median: 931
-Error for Mode: 931</code></pre>
+<pre><code>Error for Mean: 860.916666666667
+Error for Median: 885
+Error for Mode: 2425</code></pre>
 </div>
 </div>
 <p>For completeness, let’s also make a visualization of these errors. Instead of defining the measure of central tendency, the code below will test every value between the smallest and largest value in our ‘dist’ object.</p>
@@ -373,7 +382,7 @@ Error for Mode: 931</code></pre>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#The line below will report the smallest error found and at what value.</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">"Minimium of"</span>, <span class="fu">min</span>(result), <span class="st">"found at value of:"</span>, <span class="fu">min</span>(dist)<span class="sc">+</span>.<span class="dv">01</span><span class="sc">*</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(result))[<span class="fu">which</span>(result<span class="sc">==</span><span class="fu">min</span>(result))]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Minimium of 850.919999999999 found at value of: 3.53"</code></pre>
+<pre><code>[1] "Minimium of 860.92 found at value of: 3.73"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(dist,dist.mean,dist.median,dist.mode) <span class="co">#rm() will remove/delete whatever you put in the parenthesis to free up memory.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -529,7 +538,7 @@ Error for Mode: 931</code></pre>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(population) <span class="co">#Remember: floating point error exists</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 6.486016e-14</code></pre>
+<pre><code>[1] -9.044546e-15</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -551,8 +560,8 @@ Error for Mode: 931</code></pre>
 <span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Population size: 1000000
-Population mean: 10.0000000000006 #Reminder: floating point error exists
-Population standard deviation: 9.99999999999982</code></pre>
+Population mean: 9.99999999999991 #Reminder: floating point error exists
+Population standard deviation: 9.99999999999991</code></pre>
 </div>
 </div>
 <p>We have our population.</p>
@@ -576,8 +585,8 @@ Population standard deviation: 9.99999999999982</code></pre>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">paste</span>(s.mean,s.sd,<span class="at">sep=</span><span class="st">"</span><span class="sc">\n</span><span class="st">"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Sample mean: 11.483333544117
-Sample Standard Deviation: 9.39862223324779</code></pre>
+<pre><code>Sample mean: 11.500404035214
+Sample Standard Deviation: 10.1997537755103</code></pre>
 </div>
 </div>
 <p>Were both values 10? That’s extremely unlikely to be the case.</p>
@@ -592,8 +601,8 @@ Sample Standard Deviation: 9.39862223324779</code></pre>
 <span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paste</span>(<span class="st">"Sample Standard Deviation:"</span>,<span class="fu">sd</span>(data)<span class="sc">*</span>(<span class="dv">99</span><span class="sc">/</span>n)),</span>
 <span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Sample mean: 10.7555382741446
-Sample Standard Deviation: 9.45253677846695</code></pre>
+<pre><code>Sample mean: 8.08439739996316
+Sample Standard Deviation: 9.39795261036534</code></pre>
 </div>
 </div>
 <p>Still not 10s…why though? The reason why these estimates are not equal to the population values we defined is because of random sampling variability. Put simply, we do not have control over what members from the population will be included in our sample. In fact, as we’ll see below, the accuracy of our statistical inference will <em>depend</em> on us not having control.</p>
@@ -625,14 +634,14 @@ Sample Standard Deviation: 9.45253677846695</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(saved.means)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 9.892422</code></pre>
+<pre><code>[1] 9.966601</code></pre>
 </div>
 </div>
 <p>Why would we compute this? Well, when we measure something we’re usually not going to measure it exactly correct. There will typically be some amount of imprecision in our measurement. Importantly, if all of the imprecision in our measurement is simply due to random causes, then we can remove these biases. For example, let’s say you measure the length of book 3 times and you get 15,17,16 centimeters. If the true length is 16 centimeters, then when you got 15 you were underestimating by 1 and when you got 17 you were overestimating by 1. So you’d have errors of -1, 0, 1 and when we average the measurements, the -1 and 1 will cancel out. In practice, this doesn’t happen perfectly all the time. However, if our errors are truly random, the tendency will be for the errors to cancel out when we aggregate. In the case before us, we’re computing a mean of means. BUT, we already know that we selected the members of each sample completely at random. So, it follows that the imprecision in our estimates (recall that we’re using the sample mean to estimate the population mean) is due to random causes.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(saved.sds) <span class="co">#The same applies to our estimates of the standard deviation.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 9.87885</code></pre>
+<pre><code>[1] 9.8961</code></pre>
 </div>
 </div>
 <p>Were the mean of saved.means and saved.sds closer to 10 than the original ‘data’? Most likely.</p>
@@ -833,7 +842,7 @@ Sample Standard Deviation: 9.45253677846695</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">mean</span>(saved.means<span class="fl">.10</span>k[,<span class="dv">2</span>]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 9.910944</code></pre>
+<pre><code>[1] 9.919638</code></pre>
 </div>
 </div>
 <p>Previously we computed the standard deviation as sqrt(mean((data-mean(data))^2)). Now we will correct the formula by adding in the correction factor. Instead of dividing by n we will divide by n-1… In code, the mean() function already divided by n.&nbsp;So, first we multiply by n to undo the division. Then we divide by (n-1).</p>
@@ -881,7 +890,7 @@ Sample Standard Deviation: 9.45253677846695</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(saved.means<span class="fl">.10</span>k[,<span class="dv">1</span>]) <span class="co">#approximately 1. Likely to be slightly less than 1. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9951141</code></pre>
+<pre><code>[1] 1.014839</code></pre>
 </div>
 </div>
 <p>Why? Because the standard deviation of this ‘distribution of sample means’ is related to the sample sizes.</p>
@@ -892,7 +901,7 @@ Sample Standard Deviation: 9.45253677846695</code></pre>
 <span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal.numeric</span>(A,B,<span class="at">tolerance =</span> .<span class="dv">1</span>) <span class="co">#all.equal.numeric compares the A with the B. if their difference is smaller than value set for tolerance, the function returns TRUE. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
+<pre><code>[1] "Mean relative difference: 0.1721978"</code></pre>
 </div>
 </div>
 <p>Since we only computed B from 10k means, rather than an infinite set of 100 member samples, it won’t be exactly 1. Likewise, our estimate contained in A is based on a single sample with 100 members. In other words, the fact that the two (A and B) are even remotely close IS AMAZING. sd(data) is an approximation of the population standard deviation we defined earlier. So the all.equal.numeric function may not return ‘TRUE’ in some instances. It <em>would</em> be exactly equal to 10 in an ideal world or over infinitely many samples. So putting it all together here. We defined our population standard deviation as 10 and we have also made each sample with 100 members selected <em>at random</em>. So we have 10/sqrt(100) == 1.</p>
@@ -989,7 +998,7 @@ There are several reasons:
 <div class="cell">
 <div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>((Y<span class="sc">-</span><span class="fu">mean</span>(Y))<span class="sc">^</span><span class="dv">2</span>) <span class="co">#This expression (same as above) is a quadratic. We can expand it. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 100.7828</code></pre>
+<pre><code>[1] 105.3755</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>((Y<span class="sc">-</span><span class="fu">mean</span>(Y))<span class="sc">^</span><span class="dv">2</span>) <span class="sc">==</span> <span class="fu">mean</span>(Y<span class="sc">^</span><span class="dv">2</span>)<span class="sc">+</span><span class="fu">mean</span>(Y)<span class="sc">^</span><span class="dv">2</span><span class="sc">-</span><span class="fu">mean</span>(<span class="dv">2</span><span class="sc">*</span>Y<span class="sc">*</span><span class="fu">mean</span>(Y)) <span class="co">#Is TRUE. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1000,12 +1009,12 @@ There are several reasons:
 <div class="cell">
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="dv">2</span><span class="sc">*</span>Y<span class="sc">*</span><span class="fu">mean</span>(Y)) <span class="sc">==</span> <span class="dv">2</span><span class="sc">*</span><span class="fu">mean</span>(Y)<span class="sc">^</span><span class="dv">2</span> <span class="co"># This line may return FALSE but we can confirm it is TRUE:</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] FALSE</code></pre>
+<pre><code>[1] TRUE</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">paste</span>(<span class="st">'Left-hand side'</span>,<span class="fu">mean</span>(<span class="dv">2</span><span class="sc">*</span>Y<span class="sc">*</span><span class="fu">mean</span>(Y))),<span class="fu">paste</span>(<span class="st">'Right-hand side'</span>,<span class="dv">2</span><span class="sc">*</span><span class="fu">mean</span>(Y)<span class="sc">^</span><span class="dv">2</span>), <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Left-hand side 178.701591138378
-Right-hand side 178.701591138378</code></pre>
+<pre><code>Left-hand side 244.780661004441
+Right-hand side 244.780661004441</code></pre>
 </div>
 </div>
 <p>Now, we swap in our substitution:</p>
@@ -1016,8 +1025,8 @@ Right-hand side 178.701591138378</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">paste</span>(<span class="st">'Left-hand side:'</span>,<span class="fu">mean</span>((Y<span class="sc">-</span><span class="fu">mean</span>(Y))<span class="sc">^</span><span class="dv">2</span>)),<span class="fu">paste</span>(<span class="st">'Right-hand side:'</span>,<span class="fu">mean</span>(Y<span class="sc">^</span><span class="dv">2</span>)<span class="sc">+</span><span class="fu">mean</span>(Y)<span class="sc">^</span><span class="dv">2-2</span><span class="sc">*</span><span class="fu">mean</span>(Y)<span class="sc">^</span><span class="dv">2</span>),<span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Left-hand side: 100.78283204476
-Right-hand side: 100.78283204476</code></pre>
+<pre><code>Left-hand side: 105.37550121433
+Right-hand side: 105.37550121433</code></pre>
 </div>
 </div>
 <p>Look closely at the right-hand side of the formula. It has 3 parts. Part 1: mean(Y^2) Part 2:mean(Y)^2 Part 3:-2*mean(Y)^2.<br>
@@ -1039,8 +1048,8 @@ Parts 2 and 3 are the same. So, we combine them:</p>
 <span id="cb104-3"><a href="#cb104-3" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">"Computational Variance formula result:"</span>,(<span class="fu">mean</span>(Y<span class="sc">^</span><span class="dv">2</span>)<span class="sc">-</span><span class="fu">mean</span>(Y)<span class="sc">^</span><span class="dv">2</span>))</span>
 <span id="cb104-4"><a href="#cb104-4" aria-hidden="true" tabindex="-1"></a>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Variance formula result: 100.78283204476
-Computational Variance formula result: 100.78283204476</code></pre>
+<pre><code>Variance formula result: 105.37550121433
+Computational Variance formula result: 105.37550121433</code></pre>
 </div>
 </div>
 </section>
@@ -1069,7 +1078,7 @@ Computational Variance formula result: 100.78283204476</code></pre>
 <span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb108-4"><a href="#cb108-4" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(<span class="fu">colMeans</span>(many.samples)) <span class="co">#approximately 1.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.9773629</code></pre>
+<pre><code>[1] 0.9930757</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb110"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(<span class="fu">colMeans</span>(many.samples)) <span class="sc">==</span> <span class="fu">var</span>(<span class="fu">colSums</span>(many.samples)<span class="sc">/</span>n) <span class="co">#TRUE </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1118,11 +1127,11 @@ Computational Variance formula result: 100.78283204476</code></pre>
 <span id="cb122-2"><a href="#cb122-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb122-3"><a href="#cb122-3" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">colVars</span>(many.samples)) <span class="co">#What this code says in words: take the sum of variances where each variance was computed from each sample and each sample is represented as 1 column in the many.samples object. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 9940.281</code></pre>
+<pre><code>[1] 9501.703</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb124"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(<span class="fu">apply</span>(many.samples,<span class="dv">1</span>,sum))<span class="co">#What this code says in words: sum up the elements of each row in many.samples, then compute the variance from the result.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 8744.398</code></pre>
+<pre><code>[1] 8550.869</code></pre>
 </div>
 </div>
 <p>Below IS equal to the previous line IF and ONLY IF the members of each sample are independent and identically distributed. In other words, all the sample members belong to the same population but each member was sampled independently from all others.</p>
@@ -1177,12 +1186,12 @@ Computational Variance formula result: 100.78283204476</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb131"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb131-1"><a href="#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal.numeric</span>(<span class="fu">var</span>(<span class="fu">colMeans</span>(many.samples))<span class="sc">*</span>(<span class="dv">99</span><span class="sc">/</span><span class="dv">100</span>), (<span class="dv">1</span><span class="sc">/</span>n<span class="sc">^</span><span class="dv">2</span>)<span class="sc">*</span>n<span class="sc">*</span><span class="fu">var</span>(data),<span class="at">tolerance =</span> .<span class="dv">2</span>) <span class="co">#Is TRUE. If returns FALSE: Remember, it's an estimate based on finite samples. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
+<pre><code>[1] "Mean relative difference: 0.2376147"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb133"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="co">#and reducing the n's. </span></span>
 <span id="cb133-2"><a href="#cb133-2" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal.numeric</span>(<span class="fu">var</span>(<span class="fu">colMeans</span>(many.samples))<span class="sc">*</span>(<span class="dv">99</span><span class="sc">/</span><span class="dv">100</span>), <span class="fu">var</span>(data)<span class="sc">/</span>n,<span class="at">tolerance =</span> .<span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] TRUE</code></pre>
+<pre><code>[1] "Mean relative difference: 0.2376147"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb135"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="co">#and taking the square root. </span></span>
 <span id="cb135-2"><a href="#cb135-2" aria-hidden="true" tabindex="-1"></a><span class="fu">all.equal.numeric</span>(<span class="fu">var</span>(<span class="fu">colMeans</span>(many.samples))<span class="sc">*</span>(<span class="dv">99</span><span class="sc">/</span><span class="dv">100</span>), <span class="fu">sd</span>(data)<span class="sc">/</span><span class="fu">sqrt</span>(n),<span class="at">tolerance =</span> .<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1263,7 +1272,7 @@ Computational Variance formula result: 100.78283204476</code></pre>
 <span id="cb140-9"><a href="#cb140-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb140-10"><a href="#cb140-10" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(standardized.differences) <span class="co">#Returns approximately 1. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.00768</code></pre>
+<pre><code>[1] 1.014062</code></pre>
 </div>
 </div>
 <p>How delightful! Even though the standard deviation of the samples was 10 (because we set the population standard deviation to 10), we get back a distribution with a standard deviation of 1 (we used 10k samples so it might not be exactly 1 but it is 1 in expectation)… and it doesn’t matter at all what the standard deviation of the samples was in the original data, because we’re now talking about the standard deviation in the standardized data.</p>
@@ -1281,7 +1290,7 @@ Computational Variance formula result: 100.78283204476</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb143"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">abs</span>(standardized.differences)<span class="sc">&gt;=</span><span class="fl">1.96</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.0528</code></pre>
+<pre><code>[1] 0.0517</code></pre>
 </div>
 </div>
 <p>APPROXIMATELY 5%. THAT is where the t-table comes from. And, that number is a p-value. TO summarize, the p-value is the percentage of times/proportion of times, that the observed differences are as great or greater than the specified threshold.</p>
@@ -1306,7 +1315,7 @@ Computational Variance formula result: 100.78283204476</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb148"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb148-1"><a href="#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">abs</span>(standardized.differences)<span class="sc">&gt;=</span><span class="fl">1.972017</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.0513</code></pre>
+<pre><code>[1] 0.0504</code></pre>
 </div>
 </div>
 <p>Before going further. Let’s also look at how the t-distribution changes when we have fewer samples. Let’s compare the distribution when we have just 30 degrees of freedom and just 10.</p>
@@ -1366,7 +1375,7 @@ Computational Variance formula result: 100.78283204476</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb154"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb154-1"><a href="#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data.minus.population.mean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 7.694</code></pre>
+<pre><code>[1] 7.786</code></pre>
 </div>
 </div>
 <p>How do we interpret this new mean? This new mean is the average distance away from 100 our sample data are.</p>
@@ -1377,7 +1386,7 @@ Computational Variance formula result: 100.78283204476</code></pre>
 <span id="cb156-3"><a href="#cb156-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">sqrt</span>(<span class="fu">length</span>(data.minus.population.mean)))</span>
 <span id="cb156-4"><a href="#cb156-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(standardized.mean.difference)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 11.46954</code></pre>
+<pre><code>[1] 11.60668</code></pre>
 </div>
 </div>
 <p>How? Recall that we’re talking about standard error of differences. If the sample was from the same population, then the mean difference should be 0.</p>
@@ -1386,7 +1395,7 @@ Computational Variance formula result: 100.78283204476</code></pre>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb158"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pt</span>(standardized.mean.difference,<span class="at">df=</span><span class="dv">499</span>,<span class="at">lower.tail =</span> F) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.716877e-27</code></pre>
+<pre><code>[1] 4.878048e-28</code></pre>
 </div>
 </div>
 <p>The pt() function returns the probability. If our standardized mean difference was LESS (i.e., negative) we’d use lower.tail= T. We interpret the p-value as ’the probability that there is NO difference between the mean of student sample scores and the population mean is less than .000000.</p>
@@ -1439,7 +1448,7 @@ Computational Variance formula result: 100.78283204476</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>coverage.frequency
 FALSE  TRUE 
-  488  9512 </code></pre>
+  491  9509 </code></pre>
 </div>
 </div>
 <p>Above, we demonstrated that the confidence interval procedure works as intended.</p>
@@ -1461,7 +1470,7 @@ FALSE  TRUE
 <span id="cb162-13"><a href="#cb162-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb162-14"><a href="#cb162-14" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(standardized.differences) <span class="co">#We know is approximately 0. sd(standardized.differences) #We know is approximately 1.</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] -0.001958824</code></pre>
+<pre><code>[1] -0.003337376</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb164"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb164-1"><a href="#cb164-1" aria-hidden="true" tabindex="-1"></a>standardized.differences <span class="ot">&lt;-</span> standardized.differences<span class="sc">-</span><span class="fu">mean</span>(standardized.differences)</span>
 <span id="cb164-2"><a href="#cb164-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1471,7 +1480,7 @@ FALSE  TRUE
 <div class="cell">
 <div class="sourceCode cell-code" id="cb165"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb165-1"><a href="#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(standardized.differences) <span class="co">#Reminder: anything like -5.005435e-18 is due to floating point error. </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 1.287859e-18</code></pre>
+<pre><code>[1] -4.711787e-17</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb167"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb167-1"><a href="#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(standardized.differences) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1479,7 +1488,7 @@ FALSE  TRUE
 </div>
 <div class="sourceCode cell-code" id="cb169"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb169-1"><a href="#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(data.minus.population.mean)<span class="sc">/</span>(<span class="fu">sd</span>(data.minus.population.mean)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">500</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 11.46954</code></pre>
+<pre><code>[1] 11.60668</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb171"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb171-1"><a href="#cb171-1" aria-hidden="true" tabindex="-1"></a>standardized.differences <span class="ot">&lt;-</span> standardized.differences<span class="sc">*</span>(<span class="fu">sd</span>(data.minus.population.mean)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">500</span>)) </span>
 <span id="cb171-2"><a href="#cb171-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -1507,7 +1516,7 @@ FALSE  TRUE
 <div class="cell-output cell-output-stdout">
 <pre><code>
 FALSE  TRUE 
-  507  9493 </code></pre>
+  500  9500 </code></pre>
 </div>
 </div>
 <p>So, given this observation AND the observation that the true population value will be found within the confidence interval for 95% of experiments, we can finally test whether 0 is in the interval or not.</p>
@@ -1541,7 +1550,7 @@ FALSE  TRUE
 <span id="cb180-13"><a href="#cb180-13" aria-hidden="true" tabindex="-1"></a>R.squared <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">-</span> alternative.hypothesis.model<span class="sc">/</span>null.hypothesis.model</span>
 <span id="cb180-14"><a href="#cb180-14" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(R.squared)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2086256</code></pre>
+<pre><code>[1] 0.2125797</code></pre>
 </div>
 </div>
 <div class="cell">
