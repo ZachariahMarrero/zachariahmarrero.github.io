@@ -1,12 +1,15 @@
 ---
 title: "Accelerated Statistics"
 subtitle: "Learn Statistics in Depth and on an Accelerated Timeline"
+author: "Zachariah Marrero"
+date: May 30, 2023
 format: html
 editor: visual
 css: AcceleratedStatsLearning_styles.css 
 toc: true
 toc-depth: 4
 ---
+Optional: [Download this document to run locally](https://raw.githubusercontent.com/ZachariahMarrero/Accelerated-Statistical-Learning/main/AcceleratedStatsLearning.qmd) (requires [Quarto](https://quarto.org/docs/download/) installation)<br>
 
 ### Lessons within include: 
 
@@ -31,7 +34,7 @@ toc-depth: 4
 
 ## Who is this for?
 
-Everyone, really. I've aimed to write this so that if you know nothing at all about statistics the material should be easy to follow. Additionally, the material covers coding, computations in R, and general computing. So, even if you know a lot about statistics already, there is a lot here for you too.
+Everyone, really. I've aimed to write this so that if you know nothing at all about statistics the material should be easy to follow. Additionally, the material covers coding, computations in R, and general computing. So, even if you know a lot about statistics already, there is a lot here for you too. In fact, I would argue that most researchers do not know the derivations nor how to construct the tools covered in these first lessons. 
 
 ## What is it?
 
@@ -82,7 +85,7 @@ In fact, some researchers argue that the statistical evidence for power posing i
 
 Given the above, it is probably safe to assume there are thousands of papers spanning thousands of research questions with these types of problems in the published record. (See: One of the original articles leading in to the replication crisis article by John Ioannidis, [Why Most Published Research Findings Are False](https://journals.plos.org/plosmedicine/article/file?id=10.1371/journal.pmed.0020124&type=printable) and by Joseph Simmons, [False-positive psychology: undisclosed flexibility in data collection and analysis allows presenting anything as significant](https://pages.cs.wisc.edu/~jerryzhu/HAMLET/psyreplicability/Simmons_et_al2011.pdf).)
 
-While there are many causes, in my experience, the record points consistently to at least one issue: <br> [**A cavalier attitude about statistics**.]{style="font-size: 20px;"} <br> Since my first statistics class I've taken a statistics course most years for at least 9 years now. And, I've covered even more content in the course of my own research. With every lesson, I see these issues with greater clarity. In sum, I don't feel the social sciences have been serious enough about their statistical literacy (though that has been changing in recent history). And that's a problem for everyone for at least 2 reasons.
+While there are many causes, in my experience, the record points consistently to at least one issue: <br> [**A cavalier attitude about statistics**.]{style="font-size: 20px;"} <br> Since my first statistics class I've taken a statistics course most years for at least 9 years now. And, I've covered even more content in the course of my own research. With every lesson, what I have learned is that statistics is **ALL** about choices and the consequences of those choices. So, it's very important to be an intentional decision-maker, because when people are asleep at the wheel issues crop up. Every day, I see the issues with greater clarity. In sum, I don't feel the social sciences have been serious enough about their statistical literacy (though that has been changing in recent history). And that's a problem for everyone for at least 2 reasons.
 
 <p style="font-size: 25px;">
 

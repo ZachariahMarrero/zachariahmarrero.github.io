@@ -2,6 +2,7 @@
 title: "Zachariah Marrero,  PhD"
 css: styles.css
 image: mypic.png
+format: html
 about: 
   template: trestles
   id: ppc
