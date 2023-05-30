@@ -8,15 +8,15 @@ toc: true
 toc-depth: 4
 ---
 
-## Lessons within include: 
+### Lessons within include: 
 
 (not a comprehensive list)
-1. Simulating Data
-2. Measures of Central Tendency
-3. Sampling Distributions
-4. Defining, Deriving, and using Standard error
-5. Making Confidence Intervals
-6. Making a t-test
+1. Simulating Data <br>
+2. Measures of Central Tendency <br>
+3. Sampling Distributions <br>
+4. Defining, Deriving, and using Standard error <br>
+5. Making Confidence Intervals <br>
+6. Making a t-test <br>
 7. Introduction to Cross-Validation 
 
 
