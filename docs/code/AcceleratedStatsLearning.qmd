@@ -12,7 +12,7 @@ resource-path:
   - ..
 ---
 
-Optional: [Download this document to run locally](../code/AcceleratedStatsLearning.zip){download="AcceleratedStatsLearning.zip"} (requires [Quarto](https://quarto.org/docs/download/) ) <br>
+Optional: [Download this document to run locally](../code/AcceleratedStatsLearning.qmd.zip){download="AcceleratedStatsLearning.qmd"} <br>
 
 ### Lessons within include:
 
