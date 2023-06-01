@@ -7,12 +7,13 @@ format: html
 editor: visual
 css: AcceleratedStatsLearning_styles.css 
 toc: true
+toc-title: "Table of Contents"
 toc-depth: 4
 resource-path: 
   - ..
 ---
 
-Optional: [Download this document to run locally](../code/AcceleratedStatsLearning.zip){download="AcceleratedStatsLearning.zip"} (requires [Quarto](https://quarto.org/docs/download/) ) <br>
+Optional: [Download this document to run locally](../code/AcceleratedStatsLearning.qmd){download="AcceleratedStatsLearning"} (requires [Quarto](https://quarto.org/docs/download/) ) <br>
 
 ### Lessons within include:
 
@@ -1109,7 +1110,7 @@ Relatedly, we can analyze our data in such a way with this same tool, for exampl
 
 Let's turn our focus to this second use case.
 
-# Building a t-test from scratch: t-tests!
+# Building a t-test from scratch!
 
 The second use case is really all about t-scores and t-tests. t-tests are often taught as these opaque tools where you 'get a t-score' and compare it to the 'critical value' in a 't-table.' If you attempt to look up where the values from this 't-table' come from on the internet, you'll likely not get a clear answer and most will say the math is complicated. People who say that the math is complicated are correct but only if you need the exact values from an analytical expression (i.e., a closed-form expression). In R though, we can produce these values simply with code, using the tools we've covered up to this point. AND we'll get a much better understanding of them along the way.
 

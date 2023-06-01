@@ -14,13 +14,19 @@ website:
         text: About
       - href: Navbar pages/AcceleratedStatsLearning.qmd
         text: Accelerated Statistics
+    right: 
+      - text: "Toggle Dark/Light:"
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    theme: 
+      light: [cosmo, styles_light.css]
+      dark: [cosmo, styles_dark.css]
+    css: styles_light.css
     toc: true
+ 
 
 editor: visual
+
 
 

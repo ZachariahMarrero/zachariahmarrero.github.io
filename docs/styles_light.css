@@ -1,0 +1,22 @@
+/* css styles */
+
+/* ppc for homepage width */
+#ppc {
+    width: 150%;  /* Adjust as needed */
+    margin: auto;
+}
+
+
+/* for navbar colors */
+/*-- scss:defaults --*/
+// Base document colors
+$navbar-hl: #F90B1E;
+/* ensures active tab is highlighted*/
+.navbar .nav-item .nav-link.active .menu-text {
+  color: $navbar-hl !important;
+}
+
+
+
+// Code blocks
+

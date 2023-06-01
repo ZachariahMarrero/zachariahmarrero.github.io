@@ -1,8 +1,13 @@
 ---
 title: "Zachariah Marrero,  PhD"
-css: ../styles.css
+css: ../styles_light.css
 image: mypic.png
-format: html
+format:
+  html:
+    page-layout: article
+    grid:
+      sidebar-width: 50px
+      margin-width: 350px
 about: 
   template: trestles
   id: ppc
