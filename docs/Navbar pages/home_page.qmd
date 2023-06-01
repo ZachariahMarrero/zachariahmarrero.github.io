@@ -8,6 +8,7 @@ format:
     grid:
       sidebar-width: 50px
       margin-width: 350px
+      gutter-width: 2rem
 about: 
   template: trestles
   id: ppc
