@@ -14,6 +14,9 @@ website:
         text: About
       - href: Navbar pages/AcceleratedStatsLearning.qmd
         text: Accelerated Statistics
+      - href: Navbar pages/XGBoost_page.qmd
+        text: XGBoost scripts (FREE)
+     
     right: 
       - text: "Toggle Dark/Light:"
 

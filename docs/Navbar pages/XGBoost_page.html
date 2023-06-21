@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Zachariah Marrero PhD - Website Overview</title>
+<title>Zachariah Marrero PhD - XGBoost Scripts</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -63,14 +63,14 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles_light.css">
-<link rel="stylesheet" href="about.css">
-<meta property="og:title" content="Zachariah Marrero PhD - Website Overview">
+<link rel="stylesheet" href="XGBoost_page.css">
+<meta property="og:title" content="Zachariah Marrero PhD - XGBoost Scripts">
 <meta property="og:site-name" content="Zachariah Marrero PhD">
-<meta name="twitter:title" content="Zachariah Marrero PhD - Website Overview">
+<meta name="twitter:title" content="Zachariah Marrero PhD - XGBoost Scripts">
 <meta name="twitter:card" content="summary">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -92,7 +92,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../Navbar pages/about.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="../Navbar pages/about.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
@@ -100,7 +100,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Accelerated Statistics</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../Navbar pages/XGBoost_page.html" rel="" target="">
+    <a class="nav-link active" href="../Navbar pages/XGBoost_page.html" rel="" target="" aria-current="page">
  <span class="menu-text">XGBoost scripts (FREE)</span></a>
   </li>  
 </ul>
@@ -119,13 +119,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Website Overview</h1>
+<h1 class="title">XGBoost Scripts</h1>
 </div>
 
 
@@ -141,14 +143,37 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <div id="about_text">
-<section id="keeping-it-short-and-simple" class="level2">
-<h2 class="anchored" data-anchor-id="keeping-it-short-and-simple"><strong>Keeping it short and simple…</strong></h2>
-<p>This website is a place where I will share how to do things with data.</p>
-<p>At the top of the page you can currently see a the words ‘Accelerated Statistics.’ The content within covers some very basic, yet very important, lessons for statistical analysis. Feel free to take a break from the current conversations about AI to review the contents here. You will be surprised at the fun you can have once you understand the tools within.</p>
-<p>There is now also a ‘XGBoost Scripts (Free)’ page. The page contains exactly that.</p>
-<p>In my next update, I will show how to host your very own instance of open-source Large Language Models. Hosting your own model will give you the ability to conduct research in a completely safe environment and to explore the use of these tools which have taken control of most of the conversation in AI today.</p>
-<p>Later, I will make more posts that utilize the principles outlined in Accelerated Statistics for the presentation and evaluation of popular machine learning algorithms in the weeks, months, and years ahead. I will also continue the work on Acclerated Statisics as outlined in its concluding section. And so so so much more….</p>
-<p>I’m (still) currently sitting on a mountain of notes that I’ve accumulated over the course of my PhD studies (If you want to appreciate the flavor of this work, you can find my dissertation currently through my linkedin in the projects section). I will share methods and materials on how to approach the study of machine learning algorithms. Broadly speaking, algorithms are not built to have the same capabilities. Yet there is currently relatively little work demonstrating the properties of them. In some cases the math is still being discovered and in other cases the discoveries need to be translated for greater accessibility. Fortunately, classical statistics provides us with a roadmap for how we can approach the evaluation of algorithms in the most general sense AND modern computers make it possible.</p>
+<section id="an-update-about-my-xgboost-post" class="level3">
+<h3 class="anchored" data-anchor-id="an-update-about-my-xgboost-post">An update about my XGBoost post</h3>
+<p>A couple weeks ago I indicated I would be making a post which shows how to implement XGBoost with Bayesian Optimization. At this point I have two working versions of this routine. They are not as extremely well documented as my post in ‘Accelerated Statistics’. There’s just too much going on to do a thorough enough job for that at this time. So a review post will come in the future. That said, the files do contain lots and lots of notes to help you along.</p>
+<p>There are 3 files below which contain scripts that will enable you to fit XGBoost models in both Python and R. Each is different as you can read below but in both scripts, Bayesian Optimization is used for hyperparameter tuning. Also, both scripts have different kinds of complimentary information that can help you understand the Python script will give you a better sense of how the Bayesian optimization routines work. As a personal preference, I would default to using the Python script because it is more advanced/powerful/expressive.</p>
+<p><a href="https://arxiv.org/pdf/1603.02754.pdf"><strong>Read the XGBoost paper</strong></a></p>
+</section>
+<section id="why-xgboost" class="level2">
+<h2 class="anchored" data-anchor-id="why-xgboost">Why XGBoost:</h2>
+<p>XGBoost is an extremely value tool to have in your analysis toolkit for multiple reasons.</p>
+<p>For one, it’s extremely expressive. This means it can successfully estimate predictive models which cover a wide variety of forms. Basically, whereas in a linear model we are estimating model parameters, in XGBoost, each tree is a function drawn from a space of functions. This ‘piecemeal’ design is akin to ‘growing’ your final function. Put differently, if you can fit it into a matrix, XGBoost is often the first best step.</p>
+<p>For two, the X in XGBoost has stands for eXtreme. It is blazing fast both in model training and inference. For example, inference on an XGBoost model is O(nklog(d)), where k is the number of trees and d is the depth. So, with 1,000 datapoints, 100,000 trees, and a depth of 30 (which is absurdly large), there are only about 147.7 million operations. It can also process this on GPUs. For comparison, inference on a simple feedfoward neural network is O(nw), where w is the number of weights. So, again if you have 1,000 datapoints but only 1 million parameters in the network (which is tiny these days) you get 1 billion operations.</p>
+</section>
+<section id="xgboost-in-python" class="level2">
+<h2 class="anchored" data-anchor-id="xgboost-in-python"><strong>XGBoost in Python</strong></h2>
+<p>This version of the routine will use a customized version of cross-validation. It also uses a superior Gaussian Process modeling approach along with the Spectral Mixture Kernel. For candidate points, it uses One-Shot Knowledge Gradient rather than Covariance Matrix Adaptation Evolutionary Search. Within the file there is an explanation as to the differences between the two.</p>
+<ol type="1">
+<li><a href="../code/XGB_OKG_SpectralMixtureKernel/XGBPython.py" download="XGBPython.py">XGBoost in Python Script</a></li>
+<li><a href="../code/XGB_OKG_SpectralMixtureKernel/worker.py" download="worker.py">Worker.py script (needed for XGBoost in Python)</a></li>
+</ol>
+<p>To use the python script, download both files above. Place them in the same directory for simplicity.</p>
+<blockquote class="blockquote">
+<p><em>Sidenote:</em></p>
+<p>This script uses GPU so you’ll want to ensure that you have the CUDA and cuDNN drivers installed. There are tutorials for this online but it’s mostly just download and install the CUDA driver. Then download the cuDNN driver, unpack the zip file, copy/paste the files within the folders of the unpacked zip file to the folder which has the same name in the CUDA folders.</p>
+</blockquote>
+</section>
+<section id="xgboost-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="xgboost-in-r"><strong>XGBoost in R</strong></h2>
+<ol start="3" type="1">
+<li><a href="../code/XGBoostinR.R">XGBoost in R</a></li>
+</ol>
+<p>This version of XGBoost is strictly CPU only. The models will process in parallel on each core of the CPU but no GPU activity will be involved. While it is not as advanced as the Python implementation, it is still extremely expressive. It has several drawbacks. For instance, the Spectral Mixture Kernel is not used (because it’s not defined in the associated package and writing this out would be a headache with relatively little upside compared to just using the freely available Python version). Additionally, there is no the GPU to speed up estimation and running more than a few hundred steps in the routine will incur a huge processing cost. Traditionally Gaussian Processes require O(n^3) operations. I once ran this for 2,500 steps. It took 11 days on a Ryzen 9 5950x!!! Essentially 99% of the compute time was the Gaussian Process models getting updated. In other words, it scales terribly. BUT! you don’t actually have to run that many steps to get acceptable results.</p>
 </section>
 </div>
 
