@@ -136,7 +136,8 @@ for(execute in 1){
     # here's a great visulaization of what the evolutionary search strategy is doing. #http://blog.otoro.net/2017/10/29/visual-evolution-strategies/
     mlr:::makeTuneControlMBO(
       mbo.design = des, #path is a set of points that have already been evaluated.   see: 'initial design' https://cran.r-project.org/web/packages/mlrMBO/vignettes/mlrMBO.html ###In this script path is created by first running the algorithm in its entirety.  Then the of optimization that was used is extracted and can be plugged in here so that when the algorithm is run a second time, it won't revisit points that it has already evaluated. Note:  this influences the search behavior of the algorithm.  If there is an unexplored part of the space that the algorithm seems to be ignoring, this won't help.  To explore that space, a separate feature "proposePoints" will need to be used.  *Not sure if this can be done as part of the initial evaluation or if this can be done after the final object is constructed but before starting a second pass with the path included in the design.
-      learner = mlr::makeLearner("regr.km", predict.type = "se",nugget=10^(-8)*1),#var(path$y,na.rm = T)),# if des is not null at y; nugget=10^(-8)*1 if y is null
+      learner = mlr::makeLearner("regr.km", predict.type = "se",nugget=10^(-8)*1,scaling=TRUE,covtype='gauss'),#var(path$y,na.rm = T)),# if des is not null at y; nugget=10^(-8)*1 if y is null
+      #covtype = gauss refers to the Squared Expontential (a.k.a. RBF kernel).  
       #DiceKrigging.  This is the cheap model itself.  There are other options but this one is apparently very good. For example, you should be able to use a random forest here if you wanted.  #Explanation for nugget: https://github.com/mlr-org/mlrMBO/issues/80 ##nugget is needed if mbo.design from previous iteration is in use... 
       mbo.control = .) %>%
     
