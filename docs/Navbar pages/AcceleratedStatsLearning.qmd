@@ -1461,7 +1461,7 @@ plot(density(MSE.estimates))
 
 Finally, to interpret this version of R.squared we simply consider its meaning.
 
-It is 1- a ratio. So, it is similar to a percentage.
+It is (1- a ratio). So, it is similar to a percentage.
 
 However, if the alternative hypothesis model is considerably worse than the null hypothesis model, the R-squared value in this formulation can be negative. In general, it is useful to treat R-squared as a percentage and to think that R-squared refers to the percentage of variance one model accounts for relative to another.
 
@@ -1469,7 +1469,7 @@ Additionally, usually the null hypothesis concerns the idea that there is no dif
 
 Cross-validation seems like a much more straightforward way to evaluate hypotheses, right? No t-distributions or sleight-of-hand/counterfactual thinking. In fact, it directly resembles our basic intuitions and reasoning about the world. 1. Get an idea. 2. Test that idea. 3. Determine if the idea was good or not based on the result.
 
-Soooooo where's the problem? First of all, the properties of cross-validation are not as well understood as classical tools. AND we do know that it has some limitations. That's not surprising though. All methods of inference have weaknesses.
+Soooooo where's the problem? First of all, the properties of cross-validation are not as well understood as more established/classical tools. AND we do know that it has some limitations. That's not surprising though. All methods of inference have weaknesses.
 
 The second issue is by splitting up the data, we lose some statistical power ( the estimator is biased, specifically pessimistically/negatively biased). If we have thousands of data points then it will not likely matter. But if we have small numbers of data points it could matter a lot. So, it matters which type of tool/test we use when we are making inferences because they don't all behave the same under the same conditions.
 
@@ -1479,9 +1479,9 @@ That's all for now. There will be more topics to come soon.
 
 in no particular order.....
 
-ANOVA. Analysis of Variance. Another method for approaching tests of mean differences between groups is with ANOVA. The basic idea of ANOVA is that IF two samples are drawn from the same population, THEN there will be more variance of within the respective samples than between them. This observation derives from the expectation that, on average, samples drawn from the same population will have the SAME mean and that there is variance among samples in ALL cases due to the population being a distribution.
+ANOVA. Analysis of Variance. Another method for approaching tests of mean differences between groups is with ANOVA. The basic idea of ANOVA is that IF two samples are drawn from the same population, THEN there will be more variance within the respective samples than between them. This observation derives from the expectation that, on average, samples drawn from the same population will have the SAME mean and that there is variance among samples in ALL cases due to the population being a distribution.
 
-F-statistic.An F-statistic is just a ratio made by taking the variances between the groups being compared and the variances within the groups. When variances between the groups is relatively larger than the variances within the groups, we can infer that the groups belong to different populations.
+F-statistic. An F-statistic is just a ratio made by taking the variances between the groups being compared and the variances within the groups. When variances between the groups is relatively larger than the variances within the groups, we can infer that the groups belong to different populations.
 
 It is ALSO, the case that F-statistics are often discussed a ratio made by taking the variance accounted for (sometimes referred to as the variance 'explained') by a model and the remaining variance (most often referred to as the 'residual' variance). The F-test is more general than the t-test.
 
@@ -1490,7 +1490,7 @@ Statistical Power/Precision. (Type 1 vs Type 2 errors) Effect size estimates.
 How convenience sampling affects sampling distributions -\> the accuracy of standard error estimates -\> and the coverage properties of confidence intervals.\
 Does cross-validation suffer the same limitations as t-tests when convenience sampling is used?
 
-Relatedly, how does data splitting in cross-validation trade-off power? When you cross-valdiate, you lose some power, but it's an empirical question as to how much you lose. At the same time, when the data do not perfectly conform to the required properties (see the examples near the end of sd vs md.R), power will suffer when not using cross-validation. So, if using cross-validation compensates for those issues, then it may result in a net gain of power in some cases.
+Relatedly, how does data splitting in cross-validation trade-off power? When you cross-validate, you lose some power, but it's an empirical question as to how much you lose. At the same time, when the data do not perfectly conform to the required properties (see the examples near the end of sd vs md.R), power will suffer when not using cross-validation. So, if using cross-validation compensates for those issues, then it may result in a net gain of power in some cases.
 
 Linear regression (including models as mapping functions rather than as lines) correlation (Pearson, Spearman)
 
